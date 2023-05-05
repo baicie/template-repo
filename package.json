@@ -12,5 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "commitizen": "^4.3.0"
+  },
+  "devDependencies": {
+    "cz-customizable": "^7.0.0"
   }
 }
