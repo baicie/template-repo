@@ -1,5 +1,0 @@
-export const PKG_PREFIX = '@design-template'
-export const PKG_NAME = 'design-template'
-export const PKG_CAMLCASE_NAME = 'DesignTemplate'
-export const PKG_CAMELCASE_LOCAL_NAME = 'DesignTemplateLocale'
-export const PKG_BRAND_NAME = 'Design Template'
