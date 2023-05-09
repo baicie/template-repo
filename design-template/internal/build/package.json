@@ -1,0 +1,35 @@
+{
+  "name": "@design-template/build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts",
+    "dev": "pnpm run stub",
+    "stub": "unbuild --stub"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.4.2",
+    "unbuild": "^1.2.1"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "chalk": "^5.2.0",
+    "consola": "^3.1.0",
+    "fast-glob": "^3.2.12",
+    "gulp": "^4.0.2",
+    "lodash": "^4.17.21",
+    "rollup": "^3.20.3",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "ts-morph": "^18.0.0",
+    "unplugin-vue-macros": "^0.11.2"
+  }
+}
