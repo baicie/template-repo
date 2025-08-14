@@ -10,20 +10,20 @@
     "test": "plasmo test"
   },
   "dependencies": {
-    "plasmo": "0.90.3",
-    "vue": "^3.5.13"
+    "plasmo": "0.90.5",
+    "vue": "^3.5.18"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.12.0",
-    "@ianvs/prettier-plugin-sort-imports": "4.4.1",
-    "@types/chrome": "0.0.315",
-    "@types/node": "22.14.1",
-    "@types/react": "19.1.2",
-    "@types/react-dom": "19.1.2",
+    "@antfu/eslint-config": "^5.2.1",
+    "@ianvs/prettier-plugin-sort-imports": "4.6.2",
+    "@types/chrome": "0.1.3",
+    "@types/node": "24.2.1",
+    "@types/react": "19.1.10",
+    "@types/react-dom": "19.1.7",
     "commitizen": "^4.3.1",
     "cz-customizable": "^7.4.0",
-    "prettier": "3.5.3",
-    "typescript": "5.8.3"
+    "prettier": "3.6.2",
+    "typescript": "5.9.2"
   },
   "manifest": {
     "host_permissions": [
