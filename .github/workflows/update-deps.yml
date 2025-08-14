@@ -45,7 +45,7 @@ jobs:
             pnpm install
 
             pnpm run build || { echo "Build failed in $dir"; exit 1; }
-            pnpm test --if-present
+            pnpm test
 
             if ! git diff --quiet -- "package.json" "pnpm-lock.yaml"; then
               git add package.json pnpm-lock.yaml
