@@ -34,8 +34,19 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          for dir in */; do
-            if [[ "$dir" == ".github/" ]] || [[ "$dir" == "node_modules/" ]]; then
+          ignored_dirs=(".github/" "node_modules/" ".git/" "dist/" "build/" "coverage/" "plasmo/")
+
+          for dir in */; do 
+            skip=false
+            for ignored in "${ignored_dirs[@]}"; do
+              if [[ "$dir" == "$ignored" ]]; then
+                skip=true
+                break
+              fi
+            done
+            
+            if [[ "$skip" == true ]]; then
+              echo "Skipping $dir (ignored)"
               continue
             fi
 
