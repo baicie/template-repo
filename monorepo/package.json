@@ -8,7 +8,8 @@
     "format": "prettier --write --cache .",
     "format-check": "prettier --check --cache .",
     "test": "vitest",
-    "test-unit": "vitest --project unit"
+    "test-unit": "vitest --project unit",
+    "build": "echo build"
   },
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
