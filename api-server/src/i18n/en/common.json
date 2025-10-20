@@ -1,0 +1,18 @@
+{
+  "success": "Operation successful",
+  "error": "Operation failed",
+  "notFound": "Not found",
+  "unauthorized": "Unauthorized",
+  "forbidden": "Forbidden",
+  "badRequest": "Bad request",
+  "internalError": "Internal server error",
+  "validationError": "Validation failed",
+  "created": "Created successfully",
+  "updated": "Updated successfully",
+  "deleted": "Deleted successfully",
+  "welcome": "Welcome to Faker API",
+  "language": {
+    "switchSuccess": "Language switched successfully",
+    "unsupported": "Unsupported language"
+  }
+}

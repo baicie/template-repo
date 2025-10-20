@@ -1,0 +1,25 @@
+{
+  "title": "用户管理",
+  "list": "用户列表",
+  "detail": "用户详情",
+  "create": "创建用户",
+  "update": "更新用户",
+  "delete": "删除用户",
+  "notFound": "用户不存在",
+  "created": "用户创建成功",
+  "updated": "用户更新成功",
+  "deleted": "用户删除成功",
+  "fields": {
+    "id": "用户ID",
+    "name": "用户名",
+    "email": "邮箱地址",
+    "age": "年龄",
+    "role": "角色",
+    "createdAt": "创建时间"
+  },
+  "roles": {
+    "admin": "管理员",
+    "user": "用户",
+    "moderator": "版主"
+  }
+}

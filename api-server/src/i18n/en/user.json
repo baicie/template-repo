@@ -1,0 +1,25 @@
+{
+  "title": "User Management",
+  "list": "User List",
+  "detail": "User Detail",
+  "create": "Create User",
+  "update": "Update User",
+  "delete": "Delete User",
+  "notFound": "User not found",
+  "created": "User created successfully",
+  "updated": "User updated successfully",
+  "deleted": "User deleted successfully",
+  "fields": {
+    "id": "User ID",
+    "name": "Name",
+    "email": "Email",
+    "age": "Age",
+    "role": "Role",
+    "createdAt": "Created At"
+  },
+  "roles": {
+    "admin": "Administrator",
+    "user": "User",
+    "moderator": "Moderator"
+  }
+}

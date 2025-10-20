@@ -1,0 +1,18 @@
+{
+  "success": "操作成功",
+  "error": "操作失败",
+  "notFound": "未找到",
+  "unauthorized": "未授权",
+  "forbidden": "禁止访问",
+  "badRequest": "请求参数错误",
+  "internalError": "服务器内部错误",
+  "validationError": "参数验证失败",
+  "created": "创建成功",
+  "updated": "更新成功",
+  "deleted": "删除成功",
+  "welcome": "欢迎使用Faker API",
+  "language": {
+    "switchSuccess": "语言切换成功",
+    "unsupported": "不支持的语言"
+  }
+}
