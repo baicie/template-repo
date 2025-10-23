@@ -104,33 +104,6 @@ export default tseslint.config(
     },
   },
 
-  // Packages targeting DOM
-  {
-    files: ['packages/{core}/**'],
-    rules: {
-      'no-restricted-globals': ['error', ...NodeGlobals],
-    },
-  },
-
-  // Packages targeting Node
-  {
-    files: ['packages/{compiler}/**'],
-    rules: {
-      'no-restricted-globals': ['error', ...DOMGlobals],
-      'no-restricted-syntax': ['error', banConstEnum],
-    },
-  },
-
-  // Private package, browser only + no syntax restrictions
-  {
-    files: ['packages-private/sfc-playground/**'],
-    rules: {
-      'no-restricted-globals': ['error', ...NodeGlobals],
-      'no-restricted-syntax': ['error', banConstEnum],
-      'no-console': 'off',
-    },
-  },
-
   // JavaScript files
   {
     files: ['*.js'],
