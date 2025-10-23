@@ -19,11 +19,7 @@
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["es2016", "dom"],
-    "types": [
-      "vitest/globals",
-      // "puppeteer",
-      "node"
-    ],
+    "types": ["vitest/globals", "node"],
     "rootDir": ".",
     "paths": {
       "@zeus-js/*": ["packages/*/src"]
@@ -36,8 +32,8 @@
     "packages/global.d.ts",
     "packages/*/src",
     "packages/*/__tests__",
-    "packages/vue/jsx-runtime",
-    "packages/runtime-dom/types/jsx.d.ts",
+    "packages/zeus/jsx-runtime",
+    "playground/benchmarks",
     "scripts/*",
     "rollup.*.js"
   ]
