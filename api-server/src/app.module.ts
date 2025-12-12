@@ -44,18 +44,18 @@ import { AuditLog } from './common/entities/audit-log.entity';
     // i18n国际化模块
     I18nModule.forRootAsync({
       useFactory: (configService: ConfigService) => ({
-        fallbackLanguage: configService.get<string>('i18n.fallbackLanguage'),
+        fallbackLanguage: configService.getOrThrow('FALLBACK_LANGUAGE'),
         loaderOptions: {
           path: join(__dirname, '/i18n/'),
           watch: true,
         },
-        resolvers: [
-          new QueryResolver(['lang', 'l']),
-          new HeaderResolver(['x-custom-lang']),
-          new CookieResolver(),
-          AcceptLanguageResolver,
-        ],
       }),
+      resolvers: [
+        { use: CookieResolver, options: ['lang'] },
+        { use: QueryResolver, options: ['lang'] },
+        AcceptLanguageResolver,
+        new HeaderResolver(['x-lang']),
+      ],
       inject: [ConfigService],
     }),
     // Winston日志模块
