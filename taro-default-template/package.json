@@ -51,29 +51,29 @@
     "@tarojs/shared": "4.1.9",
     "@tarojs/taro": "4.1.9",
     "@tarojs/plugin-framework-vue3": "4.1.9",
-    "vue": "^3.5.25"
+    "vue": "^3.5.26"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@tarojs/cli": "4.1.9",
     "@types/webpack-env": "^1.18.8",
-    "webpack": "5.103.0",
+    "webpack": "5.104.1",
     "@tarojs/webpack5-runner": "4.1.9",
     "babel-preset-taro": "4.1.9",
     "css-loader": "7.1.2",
     "style-loader": "4.0.0",
     "@vue/babel-plugin-jsx": "^2.0.1",
-    "@vue/compiler-sfc": "^3.5.25",
+    "@vue/compiler-sfc": "^3.5.26",
     "vue-loader": "^17.4.2",
     "eslint-plugin-vue": "^10.6.2",
     "eslint-config-taro": "4.1.9",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "stylelint": "^16.26.1",
-    "@typescript-eslint/parser": "^8.48.1",
-    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.51.0",
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
     "typescript": "^5.9.3",
     "postcss": "^8.5.6",
     "ts-node": "^10.9.2",
-    "@types/node": "^24.10.1"
+    "@types/node": "^25.0.3"
   }
 }
