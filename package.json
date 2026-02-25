@@ -9,9 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.27.0",
+  "packageManager": "pnpm@10.30.2",
   "devDependencies": {
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.3.0",
     "tsx": "^4.21.0"
   }
 }
