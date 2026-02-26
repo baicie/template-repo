@@ -102,9 +102,4 @@ function main() {
   console.log(`📊 统计：安装了 ${installedCount} 个项目，跳过了 ${skippedCount} 个项目`)
 }
 
-// 执行主函数
-if (require.main === module) {
-  main()
-}
-
-module.exports = { main }
+main()
