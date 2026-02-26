@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@baicie/scripts':
+        specifier: ^0.1.2
+        version: 0.1.2
       '@types/node':
         specifier: ^25.3.1
         version: 25.3.1
@@ -59,6 +62,9 @@ packages:
 
   '@asamuzakjp/nwsapi@2.3.9':
     resolution: {integrity: sha512-n8GuYSrI9bF7FFZ/SjhwevlHc8xaVlb/7HmHelnc/PZXBD2ZR49NnN9sMMuDdEGPeeRQ5d0hqlSlEpgCX3Wl0Q==}
+
+  '@baicie/scripts@0.1.2':
+    resolution: {integrity: sha512-xABSTCwUG882DjXkSFTMLNvCR4zZVL1rYEQngEXxJctw1Qf+VD45CpyYa/tf/KFcW/X3i+JdWVc/RHDcibjJ6Q==}
 
   '@bramus/specificity@2.4.2':
     resolution: {integrity: sha512-ctxtJ/eA+t+6q2++vj5j7FYX3nRu311q1wfYH3xjlLOsczhlhxAg2FWNUXhpGvAw3BWo1xBcvOV6/YLc2r5FJw==}
@@ -1478,6 +1484,10 @@ snapshots:
       lru-cache: 11.2.6
 
   '@asamuzakjp/nwsapi@2.3.9': {}
+
+  '@baicie/scripts@0.1.2':
+    dependencies:
+      picocolors: 1.1.1
 
   '@bramus/specificity@2.4.2':
     dependencies:

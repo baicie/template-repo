@@ -24,12 +24,12 @@
     "compile": "tsc -b",
     "watch": "tsc -b -w",
     "package": "vsce package",
-    "lint": "eslint src --ext ts"
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
-    "@types/node": "18.x",
-    "typescript": "^5.3.3",
+    "@types/vscode": "^1.109.0",
+    "@types/node": "25.x",
+    "typescript": "^5.9.3",
     "@repo/tsconfig": "workspace:*"
   },
   "dependencies": {

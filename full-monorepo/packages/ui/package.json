@@ -1,28 +1,28 @@
 {
   "name": "@repo/ui",
   "version": "0.0.1",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
     }
   },
   "scripts": {
-    "build": "tsup src/index.tsx --format cjs,esm --dts",
-    "dev": "tsup src/index.tsx --format cjs,esm --dts --watch",
+    "build": "rolldown -c",
+    "dev": "rolldown -w -c",
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "^18.2.0"
+    "react": "^19.2.4"
   },
   "devDependencies": {
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0",
     "@repo/tsconfig": "workspace:*",
-    "@types/react": "^18.2.0"
+    "@types/react": "^19.2.14",
+    "rolldown": "1.0.0-rc.5",
+    "typescript": "^5.9.3"
   }
 }
