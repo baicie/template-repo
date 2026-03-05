@@ -1,7 +1,7 @@
 {
   "name": "root",
   "private": true,
-  "packageManager": "pnpm@10.30.2",
+  "packageManager": "pnpm@10.30.3",
   "type": "module",
   "scripts": {
     "dev": "echo dev",
@@ -36,12 +36,12 @@
   },
   "devDependencies": {
     "@baicie/scripts": "^0.1.2",
-    "@types/node": "^25.3.1",
+    "@types/node": "^25.3.3",
     "@vitest/eslint-plugin": "^1.6.9",
     "eslint": "^10.0.2",
     "eslint-plugin-import-x": "^4.16.1",
     "jsdom": "^28.1.0",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^16.3.2",
     "picocolors": "^1.1.1",
     "prettier": "^3.8.1",
     "simple-git-hooks": "^2.13.1",
