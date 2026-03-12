@@ -51,7 +51,7 @@
     "@tarojs/shared": "4.1.11",
     "@tarojs/taro": "4.1.11",
     "@tarojs/plugin-framework-vue3": "4.1.11",
-    "vue": "^3.5.29"
+    "vue": "^3.5.30"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
@@ -63,17 +63,17 @@
     "css-loader": "7.1.4",
     "style-loader": "4.0.0",
     "@vue/babel-plugin-jsx": "^2.0.1",
-    "@vue/compiler-sfc": "^3.5.29",
+    "@vue/compiler-sfc": "^3.5.30",
     "vue-loader": "^17.4.2",
     "eslint-plugin-vue": "^10.8.0",
     "eslint-config-taro": "4.1.11",
-    "eslint": "^10.0.2",
+    "eslint": "^10.0.3",
     "stylelint": "^17.4.0",
-    "@typescript-eslint/parser": "^8.56.1",
-    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
     "typescript": "^5.9.3",
     "postcss": "^8.5.8",
     "ts-node": "^10.9.2",
-    "@types/node": "^25.3.3"
+    "@types/node": "^25.4.0"
   }
 }
