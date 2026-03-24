@@ -1,4 +1,4 @@
-name: 'test'
+name: test
 
 on: workflow_call
 
@@ -19,8 +19,8 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v5
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
+          node-version-file: .node-version
+          cache: pnpm
 
       - run: pnpm install
 
@@ -40,8 +40,8 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v5
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
+          node-version-file: .node-version
+          cache: pnpm
 
       - run: pnpm install
 
@@ -68,8 +68,8 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v5
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
+          node-version-file: .node-version
+          cache: pnpm
 
       # - run: pnpm install
       # - run: node node_modules/puppeteer/install.mjs
@@ -93,8 +93,8 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v5
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
+          node-version-file: .node-version
+          cache: pnpm
 
       - run: pnpm install
 

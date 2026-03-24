@@ -1,13 +1,13 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "composite": false,
     "types": ["node"],
     "declaration": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
-    "stripInternal": true,
-    "composite": false,
-    "noEmit": false
+    "noEmit": false,
+    "stripInternal": true
   },
   "include": ["packages/*/src"],
   "exclude": [

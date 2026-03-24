@@ -7,7 +7,7 @@
 - 使用 TypeScript 开发，编译目标为 ES2016
 - 使用 pnpm 作为包管理器
 - 使用 Vitest 进行单元测试和 E2E 测试
-- 使用 ESLint 和 Prettier 进行代码质量检查
+- 使用 ESLint 和 Prettier 进行代码质量检查（基于 @antfu/eslint-config）
 - 支持多包协同开发和发布
 
 ## AI助手使用规范
@@ -371,6 +371,8 @@ refactor(parser): simplify AST node creation
 
 ### ESLint 规则要点
 
+项目使用 `@antfu/eslint-config`，所有规则基于该 preset 并根据项目需求进行定制。主要规则包括：
+
 - 禁止使用 `debugger`
 - 禁止使用 `console.log`，允许 `console.warn`、`console.error`、`console.info`
 - 禁止使用对象展开运算符（使用 `extend` helper）
@@ -379,6 +381,7 @@ refactor(parser): simplify AST node creation
 - 禁止使用 const enum
 - 强制使用 `import type` 导入类型
 - 强制使用 `node:` 前缀导入 Node.js 内置模块
+- 禁止使用 DOM 全局变量（如 `window`、`document`）和 Node.js 全局变量（如 `module`、`require`）
 
 ### TypeScript 配置要点
 

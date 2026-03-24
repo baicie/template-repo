@@ -1,43 +1,42 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    /* 基础配置 */
-    "target": "ES2016",
-    "module": "ESNext",
-    "lib": ["ES2016", "DOM"],
-    "moduleResolution": "bundler",
-    "newLine": "LF",
-
-    /* 输出配置 */
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    "removeComments": false,
-
-    /* 类型检查 */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-
-    /* 模块解析 */
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "skipLibCheck": true,
-
-    /* 装饰器支持 */
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-
-    /* 类字段 */
-    "useDefineForClassFields": false,
 
     /* 项目引用 */
     "composite": true,
-    "isolatedDeclarations": true
+    /* 基础配置 */
+    "target": "ES2016",
+    "lib": ["ES2016", "DOM"],
+
+    /* 类字段 */
+    "useDefineForClassFields": false,
+    "emitDecoratorMetadata": true,
+    /* 装饰器支持 */
+    "experimentalDecorators": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    "resolveJsonModule": true,
+    /* 类型检查 */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "declaration": true,
+    "declarationMap": true,
+    "newLine": "LF",
+
+    "removeComments": false,
+    /* 输出配置 */
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* 模块解析 */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedDeclarations": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
   }
 }

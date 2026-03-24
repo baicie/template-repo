@@ -1,16 +1,16 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "temp",
-    "rootDir": ".",
-    "noEmit": true,
     "composite": false,
-    "isolatedDeclarations": false,
-    "types": ["vitest/globals", "node"],
+    "baseUrl": ".",
+    "rootDir": ".",
     "paths": {
       "@baicie/*": ["packages/*/src"]
-    }
+    },
+    "types": ["vitest/globals", "node"],
+    "noEmit": true,
+    "outDir": "temp",
+    "isolatedDeclarations": false
   },
   "include": [
     "packages/*/src",

@@ -12,9 +12,9 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.16",
-    "@nestjs/core": "^11.1.16",
-    "@nestjs/platform-express": "^11.1.16",
+    "@nestjs/common": "^11.1.17",
+    "@nestjs/core": "^11.1.17",
+    "@nestjs/platform-express": "^11.1.17",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
     "@repo/utils": "workspace:*"
@@ -22,16 +22,16 @@
   "devDependencies": {
     "@nestjs/cli": "^11.0.16",
     "@nestjs/schematics": "^11.0.9",
-    "@nestjs/testing": "^11.1.16",
+    "@nestjs/testing": "^11.1.17",
     "@types/express": "^5.0.6",
-    "@types/node": "^25.4.0",
+    "@types/node": "^25.5.0",
     "@types/supertest": "^7.2.0",
     "source-map-support": "^0.5.21",
     "supertest": "^7.2.2",
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "@repo/tsconfig": "workspace:*"
   }
 }
