@@ -2,7 +2,7 @@
   "name": "root",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=18.12.0"
   },
@@ -22,16 +22,16 @@
     "postinstall": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^7.7.3",
-    "@types/node": "^25.5.0",
-    "eslint": "^10.1.0",
-    "jsdom": "^29.0.1",
+    "@antfu/eslint-config": "^8.2.0",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.0",
+    "jsdom": "^29.0.2",
     "lint-staged": "^16.4.0",
     "picocolors": "^1.1.1",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "simple-git-hooks": "^2.13.1",
     "typescript": "^6.0.2",
-    "vitest": "^4.1.1"
+    "vitest": "^4.1.4"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged && pnpm check",

@@ -20,13 +20,13 @@
     "html-webpack-plugin": "^5.6.6",
     "less-loader": "^12.3.2",
     "style-loader": "^4.0.0",
-    "webpack": "^5.105.4",
+    "webpack": "^5.106.1",
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.2.3"
   },
   "dependencies": {
     "qiankun": "^2.10.16",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
   }
 }

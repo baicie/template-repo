@@ -1,6 +1,22 @@
-import { readdirSync, statSync, existsSync } from 'node:fs'
+import { readdirSync, statSync, existsSync, rmSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { execSync } from 'node:child_process'
+
+/**
+ * 删除 node_modules 目录
+ */
+function removeNodeModules(dirPath, dirName) {
+  const nodeModulesPath = join(dirPath, 'node_modules')
+
+  if (existsSync(nodeModulesPath)) {
+    try {
+      rmSync(nodeModulesPath, { recursive: true, force: true })
+      console.log(`🗑️  已删除 ${dirName} 的 node_modules`)
+    } catch (error) {
+      console.warn(`⚠️  删除 ${dirName} 的 node_modules 失败:`, error.message)
+    }
+  }
+}
 
 /**
  * 检查目录是否应该被排除
@@ -48,9 +64,10 @@ function installDependencies(dirPath, dirName) {
       env: { ...process.env, FORCE_COLOR: '1' }
     })
     console.log(`✅ ${dirName} 依赖安装完成`)
+
+    removeNodeModules(dirPath, dirName)
   } catch (error) {
     console.error(`❌ ${dirName} 依赖安装失败:`, error.message)
-    // 不抛出错误，继续处理其他目录
   }
 }
 
@@ -99,7 +116,7 @@ function main() {
   }
 
   console.log(`\n🎉 安装完成！`)
-  console.log(`📊 统计：安装了 ${installedCount} 个项目，跳过了 ${skippedCount} 个项目`)
+  console.log(`📊 统计：安装了 ${installedCount} 个项目（已自动删除 node_modules），跳过了 ${skippedCount} 个项目`)
 }
 
 main()
