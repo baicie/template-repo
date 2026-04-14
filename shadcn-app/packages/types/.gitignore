@@ -1,0 +1,15 @@
+# 依赖
+node_modules
+
+# 构建产物
+dist
+.turbo
+
+# 日志
+npm-debug.log*
+pnpm-debug.log*
+
+# IDE
+.idea
+.vscode
+*.swp

@@ -12,9 +12,9 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.18",
-    "@nestjs/core": "^11.1.18",
-    "@nestjs/platform-express": "^11.1.18",
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
+    "@nestjs/platform-express": "^11.1.19",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
     "@repo/utils": "workspace:*"
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@nestjs/cli": "^11.0.19",
     "@nestjs/schematics": "^11.0.10",
-    "@nestjs/testing": "^11.1.18",
+    "@nestjs/testing": "^11.1.19",
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
     "@types/supertest": "^7.2.0",

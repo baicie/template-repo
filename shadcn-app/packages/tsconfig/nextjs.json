@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Next.js 配置",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "plugins": [{ "name": "next" }],
+    "lib": ["ES2017", "dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "composite": false,
+    "types": ["vitest/globals"]
+  },
+  "exclude": ["node_modules"]
+}

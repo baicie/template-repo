@@ -1,0 +1,9 @@
+{
+  "references": [
+    { "path": "./packages/tsconfig" },
+    { "path": "./apps/main" },
+    { "path": "./apps/preload" },
+    { "path": "./apps/renderer" }
+  ],
+  "files": []
+}

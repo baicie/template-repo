@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "React 配置",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "lib": ["ES2017", "dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "composite": false,
+    "types": ["vitest/globals"]
+  }
+}

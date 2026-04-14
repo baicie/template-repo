@@ -1,0 +1,8 @@
+{
+  "$schema": "https://www.typescriptlang.org/tsconfig.schema.json",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx"
+  }
+}

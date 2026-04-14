@@ -1,0 +1,24 @@
+{
+  "name": "@apps/preload",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Electron preload scripts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rolldown -c rolldown.config.ts",
+    "dev": "rolldown -c rolldown.config.ts -w",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@electron-toolkit/preload": "^3.0.2",
+    "@electron-toolkit/utils": "^4.0.0",
+    "@repo/tsconfig": "workspace:*",
+    "electron": "^41.2.0",
+    "rolldown": "^1.0.0-rc.15",
+    "typescript": "^6.0.2"
+  }
+}

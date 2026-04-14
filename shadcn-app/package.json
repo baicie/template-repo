@@ -1,0 +1,30 @@
+{
+  "name": "shadcn-app",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "add:ui": "pnpm --filter @repo/ui exec shadcn@latest add",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "db:push": "pnpm --filter web exec prisma db push",
+    "db:studio": "pnpm --filter web exec prisma studio"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript": "workspace:*",
+    "prettier": "^3.8.2",
+    "turbo": "^2.9.6",
+    "typescript": "^6.0.2"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  }
+}

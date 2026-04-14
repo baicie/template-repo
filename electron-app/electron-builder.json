@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/electron-builder",
+  "appId": "com.electron.app",
+  "productName": "ElectronApp",
+  "directories": {
+    "output": "release",
+    "buildResources": "build"
+  },
+  "files": [
+    "apps/main/out/**",
+    "apps/preload/dist/**",
+    "apps/renderer/dist/**"
+  ],
+  "extraMetadata": {
+    "main": "apps/main/out/main/index.js",
+    "version": "1.0.0"
+  },
+  "electronVersion": "41.2.0",
+  "asar": true,
+  "mac": {
+    "target": ["dmg", "zip"],
+    "category": "public.app-category.developer-tools",
+    "artifactName": "${productName}-${version}-mac.${ext}"
+  },
+  "win": {
+    "target": ["nsis"],
+    "artifactName": "${productName}-${version}-win.${ext}"
+  },
+  "linux": {
+    "target": ["AppImage"],
+    "category": "Development",
+    "artifactName": "${productName}-${version}-linux.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  }
+}
