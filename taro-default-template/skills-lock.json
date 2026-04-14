@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "pnpm": {
+      "source": "onmax/nuxt-skills",
+      "sourceType": "github",
+      "computedHash": "0e72c2b2563556bc027cd025d0b3e11bf7147f362f4815ac9ad083ccbac55750"
+    }
+  }
+}
