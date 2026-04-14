@@ -9,7 +9,7 @@ export default defineConfig({
     codeSplitting: false,
   },
   external: ['electron', /^node:/],
-  watch:{
+  watch: {
     clearScreen: false,
-  }
+  },
 })

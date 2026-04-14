@@ -6,7 +6,7 @@
 
 - Node.js: >= 22.0.0
 - pnpm: >= 10.33.0
--Electron: >= 41.2.0
+  -Electron: >= 41.2.0
 
 ## 快速开始
 
@@ -101,22 +101,22 @@ electron-app/
 
 ## 技术栈
 
-| 类别          | 技术              | 版本      |
-| ------------- | ----------------- | --------- |
-| Electron      | electron          | ^41.2.0   |
-| Node.js       | node             | ^22.0.0   |
-| 包管理        | pnpm             | ^10.33.0  |
-| 构建系统      | Turborepo        | ^2.9.6    |
-| 渲染框架      | React            | ^19.2.5   |
-| 前端构建      | Vite             | ^8.0.8    |
-| Electron 构建 | electron-vite    | ^5.0.0    |
-| 打包工具      | electron-builder | ^26.8.1   |
-| TypeScript   | typescript       | ^6.0.2    |
-| 状态管理      | Zustand          | ^5.0.12   |
-| CSS 框架      | Tailwind CSS     | ^4.2.2    |
-| 日志          | electron-log     | ^5.4.3    |
-| 测试          | vitest           | ^4.1.4    |
-| 代码规范      | @antfu/eslint-config | ^8.2.0 |
+| 类别          | 技术                 | 版本     |
+| ------------- | -------------------- | -------- |
+| Electron      | electron             | ^41.2.0  |
+| Node.js       | node                 | ^22.0.0  |
+| 包管理        | pnpm                 | ^10.33.0 |
+| 构建系统      | Turborepo            | ^2.9.6   |
+| 渲染框架      | React                | ^19.2.5  |
+| 前端构建      | Vite                 | ^8.0.8   |
+| Electron 构建 | electron-vite        | ^5.0.0   |
+| 打包工具      | electron-builder     | ^26.8.1  |
+| TypeScript    | typescript           | ^6.0.2   |
+| 状态管理      | Zustand              | ^5.0.12  |
+| CSS 框架      | Tailwind CSS         | ^4.2.2   |
+| 日志          | electron-log         | ^5.4.3   |
+| 测试          | vitest               | ^4.1.4   |
+| 代码规范      | @antfu/eslint-config | ^8.2.0   |
 
 ## 开发指南
 

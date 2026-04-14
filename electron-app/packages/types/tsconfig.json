@@ -1,9 +1,9 @@
 {
   "extends": "@repo/tsconfig/base.json",
   "compilerOptions": {
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
     "rootDir": "./src",
     "outDir": "./dist",
-    "tsBuildInfoFile": "./dist/.tsbuildinfo",
     "ignoreDeprecations": "6.0"
   },
   "include": ["src/**/*"],

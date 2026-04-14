@@ -16,6 +16,7 @@
     "clean": "rm -rf out"
   },
   "dependencies": {
+    "@electron-toolkit/utils": "^4.0.0",
     "@repo/types": "workspace:*",
     "electron-log": "^5.4.3"
   },

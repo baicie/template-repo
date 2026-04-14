@@ -59,6 +59,9 @@ importers:
 
   apps/main:
     dependencies:
+      '@electron-toolkit/utils':
+        specifier: ^4.0.0
+        version: 4.0.0(electron@41.2.0)
       '@repo/types':
         specifier: workspace:*
         version: link:../../packages/types

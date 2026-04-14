@@ -25,7 +25,7 @@ export default defineConfig({
       rollupOptions: {
         external: ['electron', /^node:/],
         output: {
-          entryFileNames: 'index.js',
+          entryFileNames: 'index.cjs',
         },
       },
     },

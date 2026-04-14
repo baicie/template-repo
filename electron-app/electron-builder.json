@@ -16,25 +16,66 @@
     "version": "1.0.0"
   },
   "electronVersion": "41.2.0",
-  "asar": true,
+  "asar": false,
+  "asarUnpack": [
+    "**/node_modules/@electron/**/*",
+    "**/node_modules/native-addon/**/*",
+    "**/node_modules/*.node",
+    "**/node_modules/@msgpack/**/*"
+  ],
+  "compression": "maximum",
+  "npmRebuild": false,
+  "nodeGypRebuild": false,
+  "buildDependenciesFromSource": false,
+  "electronDownload": {
+    "mirror": "https://npmmirror.com/mirrors/electron/"
+  },
   "mac": {
-    "target": ["dmg", "zip"],
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      }
+    ],
     "category": "public.app-category.developer-tools",
-    "artifactName": "${productName}-${version}-mac.${ext}"
+    "artifactName": "${productName}-${version}-mac-${arch}.${ext}",
+    "hardenedRuntime": true,
+    "gatekeeperAssess": false
   },
   "win": {
-    "target": ["nsis"],
-    "artifactName": "${productName}-${version}-win.${ext}"
+    "target": [
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "artifactName": "${productName}-${version}-win-${arch}.${ext}"
   },
   "linux": {
-    "target": ["AppImage"],
+    "target": [
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      }
+    ],
     "category": "Development",
-    "artifactName": "${productName}-${version}-linux.${ext}"
+    "artifactName": "${productName}-${version}-linux-${arch}.${ext}"
+  },
+  "portable": {
+    "artifactName": "${productName}-${version}-portable.${ext}"
   },
   "nsis": {
     "oneClick": false,
     "allowToChangeInstallationDirectory": true,
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true
-  }
+  },
+  "appx": {
+    "displayName": "ElectronApp",
+    "identityName": "ElectronApp",
+    "publisher": "CN=ElectronApp",
+    "publisherDisplayName": "ElectronApp",
+    "applicationId": "ElectronApp"
+  },
+  "publish": null
 }

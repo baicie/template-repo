@@ -5,7 +5,7 @@ import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import { app, BrowserWindow, dialog, ipcMain, Menu, shell } from 'electron'
 import log from 'electron-log/main'
 
-log.initialize()
+log.initialize({ preload: true })
 log.info('Application starting...')
 
 let mainWindow: BrowserWindow | null = null
@@ -19,7 +19,7 @@ function createWindow(): void {
     show: false,
     autoHideMenuBar: false,
     webPreferences: {
-      preload: join(__dirname, '../../../preload/dist/index.js'),
+      preload: join(__dirname, '../../../preload/dist/index.cjs'),
       sandbox: false,
       contextIsolation: true,
       nodeIntegration: false,
@@ -31,19 +31,37 @@ function createWindow(): void {
     mainWindow?.show()
     if (is.dev) {
       mainWindow?.webContents.openDevTools()
+      mainWindow?.webContents.on(
+        'did-fail-load',
+        (_, errorCode, errorDescription) => {
+          log.error('Failed to load:', errorCode, errorDescription)
+        },
+      )
+      mainWindow?.webContents.on('render-process-gone', (_, details) => {
+        log.error('Render process gone:', details)
+      })
     }
   })
 
-  mainWindow.webContents.setWindowOpenHandler(details => {
+  mainWindow.webContents.setWindowOpenHandler((details) => {
     void shell.openExternal(details.url)
     return { action: 'deny' }
+  })
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.type === 'keyDown' && input.key === 'F12') {
+      mainWindow?.webContents.toggleDevTools()
+    }
   })
 
   const rendererUrl = process.env.ELECTRON_RENDERER_URL
   if (is.dev && rendererUrl !== undefined) {
     void mainWindow.loadURL(rendererUrl)
-  } else {
-    void mainWindow.loadFile(join(__dirname, '../../../renderer/dist/index.html'))
+  }
+  else {
+    void mainWindow.loadFile(
+      join(__dirname, '../../../renderer/dist/index.html'),
+    )
   }
 
   mainWindow.on('closed', () => {
@@ -135,7 +153,8 @@ function setupIpcHandlers(): void {
   ipcMain.handle('app:maximize', () => {
     if (mainWindow?.isMaximized()) {
       mainWindow.unmaximize()
-    } else {
+    }
+    else {
       mainWindow?.maximize()
     }
   })
@@ -184,7 +203,7 @@ app
       }
     })
   })
-  .catch(error => {
+  .catch((error) => {
     log.error('Failed to initialize app:', error)
   })
 
@@ -195,10 +214,10 @@ app.on('window-all-closed', () => {
   }
 })
 
-process.on('uncaughtException', error => {
+process.on('uncaughtException', (error) => {
   log.error('Uncaught exception:', error)
 })
 
-process.on('unhandledRejection', reason => {
+process.on('unhandledRejection', (reason) => {
   log.error('Unhandled rejection:', reason)
 })

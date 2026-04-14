@@ -63,7 +63,14 @@ function App() {
         <h1 className="text-2xl font-semibold text-gray-800">Electron App</h1>
         {appInfo && (
           <p className="text-sm text-gray-500 mt-1">
-            {appInfo.name} v{appInfo.version} ({appInfo.platform})
+            {appInfo.name}
+            {' '}
+            v
+            {appInfo.version}
+            {' '}
+            (
+            {appInfo.platform}
+            )
           </p>
         )}
       </header>
@@ -104,8 +111,8 @@ function App() {
               文件对话框
             </h2>
             <div className="flex gap-3">
-              <Button onClick={handleOpenFile}>打开文件</Button>
-              <Button variant="secondary" onClick={handleSaveFile}>
+              <Button onClick={() => { void handleOpenFile() }}>打开文件</Button>
+              <Button variant="secondary" onClick={() => { void handleSaveFile() }}>
                 保存文件
               </Button>
             </div>

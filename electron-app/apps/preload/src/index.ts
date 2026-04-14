@@ -10,14 +10,14 @@ export interface AppInfo {
 
 export interface DialogOpenOptions {
   title?: string
-  filters?: Array<{ name: string; extensions: string[] }>
+  filters?: Array<{ name: string, extensions: string[] }>
   properties?: string[]
 }
 
 export interface DialogSaveOptions {
   title?: string
   defaultPath?: string
-  filters?: Array<{ name: string; extensions: string[] }>
+  filters?: Array<{ name: string, extensions: string[] }>
 }
 
 export interface OpenDialogResult {
@@ -71,10 +71,12 @@ if (process.contextIsolated) {
   try {
     contextBridge.exposeInMainWorld('electron', electronAPI)
     contextBridge.exposeInMainWorld('api', api)
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error)
   }
-} else {
+}
+else {
   // @ts-expect-error fallback for non-isolated context
   const win = window as Window & typeof globalThis
   // @ts-expect-error fallback for non-isolated context

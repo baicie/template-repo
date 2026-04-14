@@ -8,7 +8,7 @@ export default defineConfig({
     dir: './dist',
   },
   plugins: [dts()],
-  watch:{
+  watch: {
     clearScreen: false,
-  }
+  },
 })

@@ -20,6 +20,7 @@ const ignores = [
   '**/vite.config.ts',
   '**/electron.vite.config.ts',
   '**/vitest.config.ts',
+  '**/rolldown.config.ts',
   'dts-build/packages',
   'playground',
   'node_modules',
