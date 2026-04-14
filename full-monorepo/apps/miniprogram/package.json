@@ -57,7 +57,7 @@
     "@tarojs/webpack5-runner": "4.2.0",
     "@types/react": "^19.2.14",
     "@types/webpack-env": "^1.18.8",
-    "@typescript-eslint/parser": "^8.58.1",
+    "@typescript-eslint/parser": "^8.58.2",
     "babel-preset-taro": "4.2.0",
     "eslint": "^10.2.0",
     "eslint-config-taro": "4.2.0",

@@ -12,7 +12,7 @@
     "expo": "~55.0.15",
     "expo-status-bar": "~55.0.5",
     "react": "19.2.5",
-    "react-native": "0.85.0",
+    "react-native": "0.85.1",
     "@repo/utils": "workspace:*"
   },
   "devDependencies": {
