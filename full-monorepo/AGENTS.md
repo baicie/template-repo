@@ -16,7 +16,7 @@ full-monorepo/
 ├── apps/                 # 应用程序
 │   ├── web/             # React + Vite Web 应用
 │   ├── backend/         # NestJS 后端应用
-│   ├── desktop/         # Electron 桌面应用
+│   ├── desktop/         # Tauri 桌面应用
 │   ├── mobile/          # React Native 移动应用
 │   ├── miniprogram/     # Taro 小程序
 │   └── browser-ext/    # 浏览器扩展
@@ -146,7 +146,7 @@ pnpm lint         # 代码检查（所有包和应用）
 - **apps** 使用各自框架的构建工具：
   - web: Vite
   - backend: NestJS CLI
-  - desktop: Vite + Electron
+  - desktop: Vite + Tauri
   - mobile: React Native / Expo
   - miniprogram: Taro
 
@@ -323,7 +323,7 @@ refactor(parser): simplify AST node creation
 - **packages**: 使用 rolldown 进行打包，支持 ESM 和 CJS 输出
 - **apps/web**: 使用 Vite
 - **apps/backend**: 使用 NestJS CLI
-- **apps/desktop**: 使用 Vite + Electron
+- **apps/desktop**: 使用 Vite + Tauri
 - 使用路径别名简化导入
 
 ### CI/CD
