@@ -1,10 +1,9 @@
-// @ts-check
 // these aliases are shared between vitest and rollup
 import { readdirSync, statSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-function resolveEntryForPkg(p) {
+function resolveEntryForPkg(p: string): string {
   return path.resolve(
     fileURLToPath(import.meta.url),
     `../../packages/${p}/src/index.ts`,
@@ -13,8 +12,7 @@ function resolveEntryForPkg(p) {
 
 const dirs = readdirSync(new URL('../packages', import.meta.url))
 
-/** @type {Record<string, string>} */
-const entries = {}
+const entries: Record<string, string> = {}
 
 const nonSrcPackages = ['dts-test']
 

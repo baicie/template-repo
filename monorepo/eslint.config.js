@@ -18,28 +18,6 @@ export default defineConfig(
       'no-restricted-syntax': [
         'error',
         banConstEnum,
-        {
-          selector: 'ObjectPattern > RestElement',
-          message:
-            'Our output target is ES2016, and object rest spread results in '
-            + 'verbose helpers and should be avoided.',
-        },
-        {
-          selector: 'ObjectExpression > SpreadElement',
-          message: 'esbuild transpiles object spread into very verbose inline helpers.\n'
-            + 'Please use the `extend` helper from @zeus-js/shared instead.',
-        },
-        {
-          selector: 'AwaitExpression',
-          message:
-            'Our output target is ES2016, so async/await syntax should be avoided.',
-        },
-        {
-          selector: 'ChainExpression',
-          message:
-            'Our output target is ES2016, and optional chaining results in '
-            + 'verbose helpers and should be avoided.',
-        },
       ],
     },
   },

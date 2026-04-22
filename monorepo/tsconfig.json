@@ -1,28 +1,9 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "composite": false,
-    "baseUrl": ".",
-    "rootDir": ".",
-    "paths": {
-      "@baicie/*": ["packages/*/src"]
-    },
     "types": ["vitest/globals", "node"],
     "noEmit": true,
     "outDir": "temp",
     "isolatedDeclarations": false
-  },
-  "include": [
-    "packages/*/src",
-    "packages/*/__tests__",
-    "scripts/**/*",
-    "playground/**/*"
-  ],
-  "exclude": [
-    "**/dist",
-    "**/temp",
-    "**/node_modules",
-    "**/tsconfig.tsbuildinfo",
-    "playground/vue"
-  ]
+  }
 }

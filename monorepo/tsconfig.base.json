@@ -1,7 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-
     /* 项目引用 */
     "composite": true,
     /* 基础配置 */
@@ -37,6 +36,27 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedDeclarations": true,
     "isolatedModules": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    /* 路径别名 */
+    "baseUrl": ".",
+    "paths": {
+      "@baicie/*": ["packages/*/src"]
+    }
+  },
+  "include": [
+    "packages/*/src",
+    "packages/*/__tests__",
+    "scripts/**/*",
+    "playground/**/*"
+  ],
+  "exclude": [
+    "**/dist",
+    "**/temp",
+    "**/node_modules",
+    "**/tsconfig.tsbuildinfo",
+    "playground/vue"
+  ],
+  "references": [
+    { "path": "./tsconfig.build.json" }
+  ]
 }
