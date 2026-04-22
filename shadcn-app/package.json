@@ -2,7 +2,7 @@
   "name": "shadcn-app",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@10.33.1",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -21,7 +21,7 @@
     "@repo/typescript": "workspace:*",
     "prettier": "^3.8.3",
     "turbo": "^2.9.6",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=22.0.0",

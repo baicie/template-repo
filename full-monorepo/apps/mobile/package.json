@@ -9,16 +9,16 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~55.0.15",
+    "expo": "~55.0.17",
     "expo-status-bar": "~55.0.5",
     "react": "19.2.5",
-    "react-native": "0.85.1",
+    "react-native": "0.85.2",
     "@repo/utils": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@types/react": "~19.2.14",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "@repo/tsconfig": "workspace:*"
   },
   "private": true

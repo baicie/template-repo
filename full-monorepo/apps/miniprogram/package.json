@@ -57,14 +57,14 @@
     "@tarojs/webpack5-runner": "4.2.0",
     "@types/react": "^19.2.14",
     "@types/webpack-env": "^1.18.8",
-    "@typescript-eslint/parser": "^8.58.2",
+    "@typescript-eslint/parser": "^8.59.0",
     "babel-preset-taro": "4.2.0",
-    "eslint": "^10.2.0",
+    "eslint": "^10.2.1",
     "eslint-config-taro": "4.2.0",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "stylelint": "^17.7.0",
-    "typescript": "^6.0.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "stylelint": "^17.8.0",
+    "typescript": "^6.0.3",
     "@repo/tsconfig": "workspace:*"
   }
 }
