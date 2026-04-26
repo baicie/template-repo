@@ -1,0 +1,84 @@
+{
+  "novel": "逆天改命",
+  "lastUpdated": "2026-04-26",
+  "currentState": {
+    "chapter": 1,
+    "volume": 1,
+    "mainPlotStage": "开局",
+    "location": "萧家大宅（青云城）",
+    "timepoint": "故事第 1 天"
+  },
+  "plotlines": {
+    "main": {
+      "name": "废柴逆袭",
+      "description": "萧寒穿越为废物少爷，凭借系统逆天改命，三月之约证明自己",
+      "status": "active",
+      "currentNode": "三月之约已立，系统觉醒",
+      "completedNodes": ["穿越重生", "系统觉醒", "立下婚约"],
+      "upcomingNodes": ["修炼初成", "家族测试", "打脸大少"],
+      "plannedClimax": {
+        "chapter": 30,
+        "description": "三月之约到期，萧寒当众击败林若雪"
+      }
+    },
+    "subplots": []
+  },
+  "foreshadowing": [
+    {
+      "id": "fs-001",
+      "content": "逆天改命系统的真正来历",
+      "planted": { "chapter": 1, "description": "系统激活时自称'逆天改命系统'" },
+      "hints": [],
+      "plannedReveal": { "chapter": null, "description": "" },
+      "status": "active",
+      "importance": "high"
+    },
+    {
+      "id": "fs-002",
+      "content": "萧寒原主身世之谜",
+      "planted": { "chapter": 1, "description": "原主留下玉佩，身份存疑" },
+      "hints": [],
+      "plannedReveal": { "chapter": null, "description": "" },
+      "status": "active",
+      "importance": "high"
+    },
+    {
+      "id": "fs-003",
+      "content": "玉佩（原主遗物）的秘密",
+      "planted": { "chapter": 1, "description": "萧寒随身佩戴的玉佩" },
+      "hints": [],
+      "plannedReveal": { "chapter": null, "description": "" },
+      "status": "active",
+      "importance": "medium"
+    },
+    {
+      "id": "fs-004",
+      "content": "三月之约",
+      "planted": { "chapter": 1, "description": "萧寒立誓三月内入炼气境" },
+      "hints": [],
+      "plannedReveal": { "chapter": null, "description": "" },
+      "status": "active",
+      "importance": "high"
+    }
+  ],
+  "conflicts": {
+    "active": [
+      { "id": "c-001", "type": "核心矛盾", "description": "萧寒 vs 林若雪（三月之约）", "stage": "进行中" }
+    ],
+    "resolved": [],
+    "upcoming": [
+      { "id": "c-002", "type": "内部矛盾", "description": "萧寒 vs 萧云（大少打压）", "stage": "酝酿中" }
+    ]
+  },
+  "checkpoints": {
+    "volumeEnd": [],
+    "majorEvents": [
+      { "chapter": 1, "event": "三月之约立下，系统觉醒" }
+    ]
+  },
+  "notes": {
+    "plotHoles": [],
+    "inconsistencies": [],
+    "reminders": []
+  }
+}

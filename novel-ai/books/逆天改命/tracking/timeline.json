@@ -1,0 +1,56 @@
+{
+  "novel": "逆天改命",
+  "lastUpdated": "2026-04-26",
+  "timeScale": "玄幻世界，时间流速与现实相近",
+  "events": [
+    {
+      "id": "evt-001",
+      "chapter": 1,
+      "timestamp": "故事第 1 天（清晨）",
+      "title": "穿越重生",
+      "description": "萧寒穿越为萧家废物少爷",
+      "participants": ["萧寒"],
+      "location": "萧家大宅",
+      "significance": "故事起点",
+      "consequences": ["系统激活"]
+    },
+    {
+      "id": "evt-002",
+      "chapter": 1,
+      "timestamp": "故事第 1 天（上午）",
+      "title": "系统觉醒",
+      "description": "逆天改命系统激活，获得新手礼包",
+      "participants": ["萧寒"],
+      "location": "萧家大宅",
+      "significance": "金手指出现",
+      "consequences": ["洗髓丹疏通经脉", "学习九转炼体诀", "突破炼气境一重"]
+    },
+    {
+      "id": "evt-003",
+      "chapter": 1,
+      "timestamp": "故事第 1 天",
+      "title": "三月之约",
+      "description": "林家退婚，萧寒当众立下三月之约",
+      "participants": ["萧寒", "萧战", "林若雪"],
+      "location": "萧家正厅",
+      "significance": "核心冲突确立",
+      "consequences": ["三月倒计时开始", "林若雪退婚暂缓"]
+    },
+    {
+      "id": "evt-004",
+      "chapter": 1,
+      "timestamp": "故事第 1 天（夜晚）",
+      "title": "萧河试探",
+      "description": "萧河在后院遇见萧寒，感到疑惑",
+      "participants": ["萧寒", "萧河"],
+      "location": "萧家后院",
+      "significance": "配角开始关注主角变化",
+      "consequences": ["萧河对萧寒产生疑惑"]
+    }
+  ],
+  "upcomingEvents": [
+    { "id": "evt-005", "chapter": 2, "title": "修炼初成", "description": "萧寒修炼速度惊人" },
+    { "id": "evt-006", "chapter": 3, "title": "家族测试", "description": "萧寒在家族测试中证明自己" },
+    { "id": "evt-007", "chapter": 4, "title": "打脸大少", "description": "萧云打压被反击" }
+  ]
+}

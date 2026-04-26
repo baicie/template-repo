@@ -1,0 +1,78 @@
+{
+  "novel": "逆天改命",
+  "lastUpdated": "2026-04-26",
+  "relationships": [
+    {
+      "id": "rel-001",
+      "from": "萧寒",
+      "to": "萧战",
+      "type": "血缘",
+      "description": "父子关系",
+      "fromPerspective": "尊敬但有距离，穿越后渴望证明自己",
+      "toPerspective": "对废物之名失望，希望萧寒能有所改变",
+      "tension": "萧战对萧寒期望与失望并存",
+      "history": [
+        { "chapter": 1, "event": "正厅相见，萧战对萧寒废物之名颇有微词" }
+      ],
+      "status": "neutral",
+      "changeLog": []
+    },
+    {
+      "id": "rel-002",
+      "from": "萧寒",
+      "to": "萧河",
+      "type": "血缘",
+      "description": "兄弟关系（二哥）",
+      "fromPerspective": "知道萧河'表面关心实则轻视'",
+      "toPerspective": "暗中观察，对萧寒今日变化感到疑惑",
+      "tension": "表面和谐，暗中试探",
+      "history": [
+        { "chapter": 1, "event": "后院相遇，萧河试探萧寒" }
+      ],
+      "status": "neutral",
+      "changeLog": []
+    },
+    {
+      "id": "rel-003",
+      "from": "萧寒",
+      "to": "萧云",
+      "type": "对立",
+      "description": "堂兄弟，欺压关系",
+      "fromPerspective": "迟早要打脸",
+      "toPerspective": "看不起废物堂弟",
+      "tension": "家族内部地位之争",
+      "history": [],
+      "status": "hostile",
+      "changeLog": []
+    },
+    {
+      "id": "rel-004",
+      "from": "萧寒",
+      "to": "林若雪",
+      "type": "对立",
+      "description": "原定婚约，三月之约",
+      "fromPerspective": "不服，要证明自己",
+      "toPerspective": "看不起废物，强势退婚",
+      "tension": "三月之约，赌约已立",
+      "history": [
+        { "chapter": 1, "event": "正厅对峙，萧寒当场反击" }
+      ],
+      "status": "hostile",
+      "changeLog": []
+    }
+  ],
+  "factions": {
+    "萧家": {
+      "青云城三大家族之一",
+      "家主萧战（金丹境后期）",
+      "萧寒地位最低",
+      "内部存在派系"
+    },
+    "林家": {
+      "青云城三大家族之一",
+      "实力在萧家之上",
+      "林若雪为嫡女",
+      "有退婚意图"
+    }
+  }
+}

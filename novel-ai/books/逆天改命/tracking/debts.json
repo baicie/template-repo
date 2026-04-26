@@ -1,0 +1,45 @@
+{
+  "novel": "逆天改命",
+  "lastUpdated": "2026-04-26",
+  "debts": [
+    {
+      "id": "debt-001",
+      "type": "冲突型",
+      "content": "三月之约",
+      "planted": { "chapter": 1, "description": "萧寒立誓三月内入炼气境" },
+      "due": { "chapter": 30, "description": "三月之约到期" },
+      "status": "active",
+      "severity": "large",
+      "promisedPayoff": "萧寒当众证明自己，与林若雪关系改变",
+      "chaptersRemaining": 29
+    },
+    {
+      "id": "debt-002",
+      "type": "期待型",
+      "content": "系统升级预告",
+      "planted": { "chapter": 1, "description": "系统说明有升级功能" },
+      "due": { "chapter": 5, "description": "第一次任务完成" },
+      "status": "active",
+      "severity": "small",
+      "promisedPayoff": "系统升级，获得新能力",
+      "chaptersRemaining": 4
+    },
+    {
+      "id": "debt-003",
+      "type": "悬念型",
+      "content": "萧寒原主身世之谜",
+      "planted": { "chapter": 1, "description": "原主留下玉佩" },
+      "due": { "chapter": null, "description": "待定" },
+      "status": "active",
+      "severity": "medium",
+      "promisedPayoff": "揭示萧寒原主真实身份",
+      "chaptersRemaining": null
+    }
+  ],
+  "debtsBySeverity": {
+    "微型（≤5章）": { "current": 1, "limit": 5, "status": "ok" },
+    "小型（3-5章）": { "current": 1, "limit": 3, "status": "ok" },
+    "大型（10+章）": { "current": 1, "limit": 2, "status": "ok" }
+  },
+  "warnings": []
+}

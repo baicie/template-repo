@@ -1,0 +1,30 @@
+{
+  "novel": "逆天改命",
+  "lastUpdated": "2026-04-26",
+  "hooks": [
+    {
+      "id": "hook-001",
+      "type": "悬念钩",
+      "content": "萧寒的玉佩有什么秘密？",
+      "planted": { "chapter": 1, "location": "系统激活时玉佩发光" },
+      "status": "active",
+      "revealPlanned": { "chapter": null, "description": "待定" }
+    },
+    {
+      "id": "hook-002",
+      "type": "冲突钩",
+      "content": "三月之约到期会发生什么？",
+      "planted": { "chapter": 1, "location": "结尾" },
+      "status": "active",
+      "revealPlanned": { "chapter": 30, "description": "三月之约到期" }
+    },
+    {
+      "id": "hook-003",
+      "type": "期待钩",
+      "content": "系统升级后会获得什么能力？",
+      "planted": { "chapter": 1, "location": "系统说明" },
+      "status": "active",
+      "revealPlanned": { "chapter": null, "description": "待定" }
+    }
+  ]
+}

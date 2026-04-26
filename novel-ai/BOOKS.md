@@ -4,7 +4,7 @@
 
 | 书名 | 类型 | 字数 | 进度 | 状态 | 创建时间 |
 |------|------|------|------|------|---------|
-| — | — | — | — | — | — |
+| 逆天改命 | 玄幻·穿越·废柴流 | 约 5000 字 | 第 1 章 / 第一卷 | 连载中 | 2026-04-26 |
 
 ## 状态说明
 
@@ -13,28 +13,29 @@
 - **完结**：已完成
 - **构思中**：大纲/设定阶段
 
-## 操作说明
+## 切换书籍
 
-### 切换书籍
-修改 `configs/active-book.md` 中的 `active_book` 和 `book_path`。
+修改 `configs/active-book.md` 中的 `active_book` 和 `book_path`，同时更新 `.cursor/rules/current-book.md`。
 
-### 添加新书
+## 添加新书
+
 1. 在 `books/` 下创建新书目录
 2. 创建基础文件结构
 3. 填写 `meta.md`
-4. 在本索引中添加记录
+4. 填写 `00-context.md`
+5. 更新本索引
+6. 激活新书（修改 `configs/active-book.md`）
 
-### 新书目录结构
+## 新书目录结构
 
 ```
 books/{书名}/
-├── meta.md              # 必填
-├── 00-context.md        # 必填
-├── 00-outline.md
-├── 00-characters.md
-├── 00-world.md
-├── 00-glossary.md
-├── chapters/
-│   └── v01-ch01.md
-└── drafts/
+├── meta.md              # 必填：书名、类型、文风
+├── 00-context.md        # 必填：当前写作上下文
+├── 00-outline.md       # 大纲
+├── 00-characters.md    # 角色档案
+├── 00-world.md         # 世界观设定
+├── 00-glossary.md      # 术语表
+├── chapters/           # 章节正文（v01-ch01.md）
+└── drafts/            # 废弃草稿
 ```

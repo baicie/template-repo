@@ -1,0 +1,117 @@
+{
+  "novel": "逆天改命",
+  "lastUpdated": "2026-04-26",
+  "protagonist": {
+    "name": "萧寒",
+    "currentStatus": {
+      "alive": true,
+      "health": "良好",
+      "mentalState": "积极",
+      "location": "萧家大宅后院",
+      "chapter": 1,
+      "age": 18,
+      "position": "萧家三少爷 / 穿越者",
+      "possessions": ["逆天改命系统（已激活）", "洗髓丹（已使用）", "玉佩（原主遗物）"],
+      "skills": ["九转炼体诀（第一转）", "逆天瞳（初级）"],
+      "knowledge": ["系统任务机制", "修炼基本原理", "萧家家族关系"]
+    },
+    "development": {
+      "arc": "废物少爷 → 系统觉醒 → 废柴逆袭 → 登顶巅峰",
+      "milestones": [
+        { "chapter": 1, "event": "穿越 + 系统觉醒", "stage": "已完成" },
+        { "chapter": null, "event": "三月之约到期", "stage": "进行中" },
+        { "chapter": null, "event": "加入天玄宗", "stage": "计划中" },
+        { "chapter": null, "event": "揭露身世之谜", "stage": "伏笔中" }
+      ],
+      "currentPhase": "起点（系统觉醒）",
+      "nextGoal": "三月内达到炼气境五重，履行婚约"
+    },
+    "relationships": { "summary": "见 relationships.json 详细信息" }
+  },
+  "supportingCharacters": {
+    "萧战": {
+      "role": "父亲",
+      "importance": "high",
+      "status": {
+        "alive": true,
+        "lastSeen": { "chapter": 1, "location": "萧家正厅" },
+        "currentLocation": "萧家正厅",
+        "occupation": "萧家家主"
+      },
+      "arc": { "planned": "从冷淡到重视", "current": "对萧寒废物之名颇有微词" },
+      "secrets": [],
+      "motivations": ["维护家族利益", "对萧寒期望与失望并存"]
+    },
+    "萧河": {
+      "role": "二哥",
+      "importance": "medium",
+      "status": {
+        "alive": true,
+        "lastSeen": { "chapter": 1, "location": "萧家后院" },
+        "currentLocation": "萧家",
+        "occupation": "萧家二少爷"
+      },
+      "arc": { "planned": "表面关心，实则轻视", "current": "对萧寒变化感到疑惑" },
+      "secrets": [],
+      "motivations": ["家族地位", "暗中观察萧寒动向"]
+    },
+    "萧云": {
+      "role": "大少（堂兄）",
+      "importance": "medium",
+      "status": {
+        "alive": true,
+        "lastSeen": { "chapter": null, "location": "未知" },
+        "currentLocation": "萧家",
+        "occupation": "萧家大少爷"
+      },
+      "arc": { "planned": "欺压者，最终被打脸", "current": "尚未正式出场" },
+      "secrets": [],
+      "motivations": ["家族继承权", "看不起萧寒"]
+    },
+    "林若雪": {
+      "role": "女主（未婚妻）",
+      "importance": "high",
+      "status": {
+        "alive": true,
+        "lastSeen": { "chapter": 1, "location": "萧家正厅" },
+        "currentLocation": "林家",
+        "occupation": "林家大小姐"
+      },
+      "arc": { "planned": "退婚 → 逐步被打脸 → 真心认可", "current": "强势退婚，瞧不起萧寒" },
+      "secrets": [],
+      "motivations": ["追求更强", "家族联姻压力"]
+    }
+  },
+  "characterGroups": {
+    "active": ["萧家（青云城三大家族之一）", "林家（青云城三大家族之一）"],
+    "inactive": [],
+    "deceased": []
+  },
+  "appearanceTracking": [
+    {
+      "chapter": 1,
+      "appearances": [
+        { "character": "萧寒", "role": "主角", "significance": "核心视角" },
+        { "character": "萧战", "role": "主要", "significance": "父亲" },
+        { "character": "林若雪", "role": "主要", "significance": "未婚妻，退婚方" },
+        { "character": "萧河", "role": "次要", "significance": "二哥，暗中观察" }
+      ]
+    }
+  ],
+  "consistency": {
+    "physicalTraits": {
+      "萧寒": "清秀略显瘦弱，眼神沉稳"
+    },
+    "personalityTraits": {
+      "萧寒": "外柔内刚，睚眦必报",
+      "萧战": "威严果断，务实",
+      "萧河": "温和中带距离，城府深",
+      "林若雪": "冷傲，不留情面"
+    },
+    "speechPatterns": {
+      "萧寒": "简洁有力，不废话",
+      "林若雪": "冷傲，不屑"
+    },
+    "warnings": []
+  }
+}
