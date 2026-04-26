@@ -9,12 +9,12 @@
     "noEmit": false,
     "stripInternal": true
   },
-  "include": ["packages/*/src"],
+  "include": ["../packages/*/src"],
   "exclude": [
     "**/__tests__",
     "**/dist",
     "**/playground",
     "**/node_modules",
-    "packages/napi"
+    "../packages/napi"
   ]
 }

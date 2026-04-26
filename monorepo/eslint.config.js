@@ -5,7 +5,8 @@ const NodeGlobals = ['module', 'require']
 
 const banConstEnum = {
   selector: 'TSEnumDeclaration[const=true]',
-  message: 'Please use non-const enums. This project automatically inlines enums.',
+  message:
+    'Please use non-const enums. This project automatically inlines enums.',
 }
 
 export default defineConfig(
@@ -15,10 +16,7 @@ export default defineConfig(
       'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
       'no-restricted-globals': ['error', ...DOMGlobals, ...NodeGlobals],
 
-      'no-restricted-syntax': [
-        'error',
-        banConstEnum,
-      ],
+      'no-restricted-syntax': ['error', banConstEnum],
     },
   },
 

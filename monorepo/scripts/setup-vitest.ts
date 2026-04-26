@@ -34,14 +34,22 @@ expect.extend({
           `expected "${received}" to have been warned${
             msgs.length
               ? `.\n\nActual messages:\n\n - ${msgs}`
-              : ` but no warning was recorded.`}`,
+              : ` but no warning was recorded.`
+          }`,
       }
     }
   },
 
   toHaveBeenWarnedLast(received: string) {
-    const passed
-      = warn.mock.calls.at(-1)[0].includes(received)
+    const lastCall = warn.mock.calls.at(-1)
+    if (!lastCall) {
+      return {
+        pass: false,
+        message: () =>
+          `expected "${received}" to have been warned last, but no warnings were recorded.`,
+      }
+    }
+    const passed = lastCall[0].includes(received)
     if (passed) {
       asserted.add(received)
       return {
