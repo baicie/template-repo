@@ -7,10 +7,7 @@ import { skillCommand } from './commands/skill'
 
 const program = new Command()
 
-program
-  .name('agent')
-  .description('Universal Agent CLI')
-  .version('0.1.0')
+program.name('agent').description('Universal Agent CLI').version('0.1.0')
 
 program
   .command('chat')
@@ -28,10 +25,7 @@ program
   .option('-m, --model <name>', 'Model to use', 'openai/gpt-4.1')
   .action(runCommand)
 
-program
-  .command('skill')
-  .description('Manage skills')
-  .addCommand(skillCommand)
+program.command('skill').description('Manage skills').addCommand(skillCommand)
 
 program
   .command('config')

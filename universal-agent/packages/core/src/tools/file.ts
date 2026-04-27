@@ -9,7 +9,10 @@ export function createFileTools(workspace: string) {
       description: 'Read the contents of a file from the workspace',
       parameters: z.object({
         path: z.string(),
-        lines: z.number().optional().describe('Number of lines to read (optional)'),
+        lines: z
+          .number()
+          .optional()
+          .describe('Number of lines to read (optional)'),
       }),
       async execute({ path, lines }) {
         assertSafePath(workspace, path)
@@ -61,7 +64,8 @@ export function createFileTools(workspace: string) {
 
     searchFiles: tool({
       name: 'search_files',
-      description: 'Search for text content within files using grep-like pattern',
+      description:
+        'Search for text content within files using grep-like pattern',
       parameters: z.object({
         pattern: z.string(),
         path: z.string().optional().default('.'),

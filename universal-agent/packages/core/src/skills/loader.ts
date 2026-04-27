@@ -1,31 +1,31 @@
-import type { Skill } from '../types'
+import type { AgentEvent, Skill, ToolPermission } from '../types'
 
 export class EventBus {
-  private listeners: Map<string, Set<(...args: unknown[]) => void>> = new Map()
+  private listeners: Map<AgentEvent['type'], Set<(event: AgentEvent) => void>> =
+    new Map()
 
-  on<T extends { type: string }>(
-    type: T['type'],
-    handler: (event: T) => void,
+  on<T extends AgentEvent['type']>(
+    type: T,
+    handler: (event: Extract<AgentEvent, { type: T }>) => void,
   ): void {
     if (!this.listeners.has(type)) {
       this.listeners.set(type, new Set())
     }
-    this.listeners.get(type)!.add(handler as (...args: unknown[]) => void)
+    this.listeners.get(type)!.add(handler as (event: AgentEvent) => void)
   }
 
-  off<T extends { type: string }>(
-    type: T['type'],
-    handler: (event: T) => void,
+  off<T extends AgentEvent['type']>(
+    type: T,
+    handler: (event: Extract<AgentEvent, { type: T }>) => void,
   ): void {
-    this.listeners.get(type)?.delete(handler as (...args: unknown[]) => void)
+    this.listeners.get(type)?.delete(handler as (event: AgentEvent) => void)
   }
 
-  emit<T extends { type: string }>(event: T): void {
-    this.listeners.get(event.type)?.forEach((handler) => {
+  emit(event: AgentEvent): void {
+    this.listeners.get(event.type)?.forEach(handler => {
       try {
         handler(event)
-      }
-      catch (error) {
+      } catch (error) {
         console.error(`Error in event handler for ${event.type}:`, error)
       }
     })
@@ -47,15 +47,13 @@ export class SkillLoader {
     const entries = await readdir(this.skillsDir, { withFileTypes: true })
 
     for (const entry of entries) {
-      if (!entry.isDirectory())
-        continue
+      if (!entry.isDirectory()) continue
       const skillPath = join(this.skillsDir, entry.name, 'SKILL.md')
       try {
         const content = await readFile(skillPath, 'utf-8')
         const skill = this.parseSkillMd(content, entry.name)
         skills.push(skill)
-      }
-      catch {
+      } catch {
         // skip files without SKILL.md
       }
     }
@@ -70,15 +68,16 @@ export class SkillLoader {
     try {
       const content = await readFile(skillPath, 'utf-8')
       return this.parseSkillMd(content, name)
-    }
-    catch {
+    } catch {
       return null
     }
   }
 
   private parseSkillMd(content: string, name: string): Skill {
     const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/)
-    const body = frontmatterMatch ? content.replace(frontmatterMatch[0], '').trim() : content
+    const body = frontmatterMatch
+      ? content.replace(frontmatterMatch[0], '').trim()
+      : content
 
     const metadata: Record<string, unknown> = {}
     if (frontmatterMatch) {
@@ -91,8 +90,7 @@ export class SkillLoader {
               .slice(1, -1)
               .split(',')
               .map(s => s.trim())
-          }
-          else {
+          } else {
             metadata[key.trim()] = value.replace(/^["']|["']$/g, '')
           }
         }
@@ -100,10 +98,10 @@ export class SkillLoader {
     }
 
     return {
-      name: metadata.name as string || name,
-      description: metadata.description as string || '',
+      name: (metadata.name as string) || name,
+      description: (metadata.description as string) || '',
       triggers: (metadata.triggers as string[]) || [],
-      permissions: (metadata.permissions as string[]) || [],
+      permissions: (metadata.permissions as unknown as ToolPermission[]) || [],
       tools: (metadata.tools as string[]) || [],
       content: body,
     }
@@ -124,7 +122,7 @@ export class SkillRegistry {
 
   async select(input: string): Promise<Skill[]> {
     const keywords = input.toLowerCase().split(/\s+/)
-    return this.skills.filter((skill) => {
+    return this.skills.filter(skill => {
       if (skill.triggers.some(t => keywords.includes(t.toLowerCase())))
         return true
       if (skill.description.toLowerCase().includes(input.toLowerCase()))

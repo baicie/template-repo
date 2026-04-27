@@ -3,17 +3,22 @@ import pc from 'picocolors'
 
 const SPINNER = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧']
 
-export async function chatCommand(prompt?: string, options: {
-  workspace: string
-  model: string
-} = { workspace: process.cwd(), model: 'openai/gpt-4.1' }) {
+export async function chatCommand(
+  prompt?: string,
+  options: {
+    workspace: string
+    model: string
+  } = { workspace: process.cwd(), model: 'openai/gpt-4.1' },
+) {
   const runtime = new AgentRuntime({ memoryStore: new InMemoryStore() })
 
   const eventBus = runtime.getEventBus()
 
   let spinnerIndex = 0
   const spinner = setInterval(() => {
-    process.stdout.write(`\r${pc.cyan(SPINNER[spinnerIndex++ % SPINNER.length])} Agent is thinking... `)
+    process.stdout.write(
+      `\r${pc.cyan(SPINNER[spinnerIndex++ % SPINNER.length])} Agent is thinking... `,
+    )
   }, 100)
 
   eventBus.on('run.started', () => {
@@ -26,7 +31,7 @@ export async function chatCommand(prompt?: string, options: {
     process.stdout.write(`\r${pc.cyan('Thinking...')}`)
   })
 
-  eventBus.on('tool.call.started', (event) => {
+  eventBus.on('tool.call.started', event => {
     process.stdout.write(`\r${pc.yellow(`Tool: ${event.toolName}`)}`)
   })
 
@@ -52,11 +57,13 @@ export async function chatCommand(prompt?: string, options: {
     console.log()
     console.log(pc.green('Agent:'), result.finalOutput)
     console.log(pc.dim(`Session: ${result.sessionId}`))
-  }
-  catch (error) {
+  } catch (error) {
     clearInterval(spinner)
     process.stdout.write('\r')
-    console.error(pc.red('Error:'), error instanceof Error ? error.message : String(error))
+    console.error(
+      pc.red('Error:'),
+      error instanceof Error ? error.message : String(error),
+    )
     process.exit(1)
   }
 }

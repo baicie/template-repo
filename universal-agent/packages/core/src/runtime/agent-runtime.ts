@@ -1,4 +1,5 @@
-import type { AgentRunState, MemoryStore } from '../types'
+import type { AgentRunState } from '../types'
+import type { MemoryStore } from '../memory'
 import { randomUUID } from 'node:crypto'
 import { EventBus } from '../skills'
 
@@ -27,12 +28,13 @@ export class AgentRuntime {
   private eventBus: EventBus
   private memoryStore: MemoryStore
 
-  constructor(options: {
-    eventBus?: EventBus
-    memoryStore: MemoryStore
-  }) {
+  constructor(options: { eventBus?: EventBus; memoryStore: MemoryStore }) {
     this.eventBus = options.eventBus || new EventBus()
     this.memoryStore = options.memoryStore
+  }
+
+  get memory(): MemoryStore {
+    return this.memoryStore
   }
 
   getEventBus(): EventBus {
@@ -57,7 +59,11 @@ export class AgentRuntime {
 
       const finalOutput = `[Agent] Received: ${input.input}`
 
-      this.eventBus.emit({ type: 'run.finished', sessionId, output: finalOutput })
+      this.eventBus.emit({
+        type: 'run.finished',
+        sessionId,
+        output: finalOutput,
+      })
 
       return {
         sessionId,
@@ -66,8 +72,7 @@ export class AgentRuntime {
         usedSkills: [],
         state: 'finalizing',
       }
-    }
-    catch (error) {
+    } catch (error) {
       this.eventBus.emit({
         type: 'run.failed',
         sessionId,

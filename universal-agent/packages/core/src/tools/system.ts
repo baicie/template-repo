@@ -12,15 +12,19 @@ export function createSystemTools() {
       }),
       async execute({ command, cwd }) {
         const { exec } = await import('node:child_process')
-        return new Promise((resolve) => {
-          exec(command, { cwd, maxBuffer: 10 * 1024 * 1024 }, (error, stdout, stderr) => {
-            resolve({
-              stdout,
-              stderr,
-              success: !error,
-              error: error?.message,
-            })
-          })
+        return new Promise(resolve => {
+          exec(
+            command,
+            { cwd, maxBuffer: 10 * 1024 * 1024 },
+            (error, stdout, stderr) => {
+              resolve({
+                stdout,
+                stderr,
+                success: !error,
+                error: error?.message,
+              })
+            },
+          )
         })
       },
       needsApproval: true,
@@ -34,14 +38,18 @@ export function createSystemTools() {
       }),
       async execute({ url }) {
         const { exec } = await import('node:child_process')
-        return new Promise((resolve) => {
-          exec(`curl -s "${url}"`, { maxBuffer: 5 * 1024 * 1024 }, (error, stdout, stderr) => {
-            resolve({
-              content: stdout,
-              error: stderr || error?.message,
-              success: !error,
-            })
-          })
+        return new Promise(resolve => {
+          exec(
+            `curl -s "${url}"`,
+            { maxBuffer: 5 * 1024 * 1024 },
+            (error, stdout, stderr) => {
+              resolve({
+                content: stdout,
+                error: stderr || error?.message,
+                success: !error,
+              })
+            },
+          )
         })
       },
       needsApproval: true,

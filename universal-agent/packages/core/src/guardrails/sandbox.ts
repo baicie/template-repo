@@ -11,8 +11,7 @@ export function assertSafePath(workspace: string, targetPath: string): string {
   let resolved: string
   if (isAbsolute(targetPath)) {
     resolved = targetPath
-  }
-  else {
+  } else {
     resolved = resolve(workspace, targetPath)
   }
 
@@ -32,12 +31,7 @@ const DANGEROUS_PATTERNS = [
   /:\/\/localhost.*delete/i,
 ]
 
-const DANGEROUS_COMMANDS = [
-  'sudo rm',
-  'dd if=',
-  'mkfs',
-  ':(){ :|:& };:',
-]
+const DANGEROUS_COMMANDS = ['sudo rm', 'dd if=', 'mkfs', ':(){ :|:& };:']
 
 export function assertSafeCommand(command: string): void {
   if (DANGEROUS_PATTERNS.some(p => p.test(command))) {
@@ -56,12 +50,12 @@ export function assertSafeUrl(url: string): void {
     }
     const blocked = ['localhost', '127.0.0.1', '0.0.0.0']
     if (blocked.includes(parsed.hostname)) {
-      throw new SandboxError(`Access to internal hosts is not allowed: ${parsed.hostname}`)
+      throw new SandboxError(
+        `Access to internal hosts is not allowed: ${parsed.hostname}`,
+      )
     }
-  }
-  catch (e) {
-    if (e instanceof SandboxError)
-      throw e
+  } catch (e) {
+    if (e instanceof SandboxError) throw e
     throw new SandboxError(`Invalid URL: ${url}`)
   }
 }

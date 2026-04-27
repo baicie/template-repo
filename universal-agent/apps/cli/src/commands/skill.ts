@@ -20,9 +20,11 @@ const listCommand = new Command('list')
       }
       console.log()
       console.log(pc.dim(`Total: ${skills.length} skill(s)`))
-    }
-    catch (error) {
-      console.error(pc.red('Error listing skills:'), error instanceof Error ? error.message : String(error))
+    } catch (error) {
+      console.error(
+        pc.red('Error listing skills:'),
+        error instanceof Error ? error.message : String(error),
+      )
     }
   })
 

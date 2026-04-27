@@ -12,18 +12,23 @@ export default defineConfig({
   },
   build: {
     target: 'node22',
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      formats: ['es'],
+      fileName: () => 'index.js',
+    },
     outDir: 'dist',
     emptyOutDir: true,
     sourcemap: true,
     minify: false,
     rollupOptions: {
-      input: resolve(__dirname, 'src/index.ts'),
       external: [
         'node:fs',
         'node:fs/promises',
         'node:path',
         'node:child_process',
         'node:url',
+        'node:crypto',
         '@agent/core',
         'commander',
         'picocolors',

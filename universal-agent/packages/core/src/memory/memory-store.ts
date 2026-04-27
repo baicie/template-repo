@@ -19,7 +19,11 @@ export class InMemoryStore implements MemoryStore {
     return this.memories.slice(0, 10)
   }
 
-  async saveTaskResult(input: { sessionId: string, input: string, output: string }): Promise<void> {
+  async saveTaskResult(input: {
+    sessionId: string
+    input: string
+    output: string
+  }): Promise<void> {
     const item: MemoryItem = {
       id: `task-${Date.now()}`,
       type: 'task_history',
@@ -34,7 +38,10 @@ export class InMemoryStore implements MemoryStore {
   }
 
   async addMemory(memory: MemoryItem): Promise<void> {
-    this.memories.push({ ...memory, createdAt: memory.createdAt || new Date().toISOString() })
+    this.memories.push({
+      ...memory,
+      createdAt: memory.createdAt || new Date().toISOString(),
+    })
   }
 
   async getHistory(sessionId: string): Promise<MemoryItem[]> {

@@ -1,10 +1,13 @@
 import { AgentRuntime, InMemoryStore } from '@agent/core'
 import pc from 'picocolors'
 
-export async function runCommand(task: string, options: {
-  workspace: string
-  model: string
-} = { workspace: process.cwd(), model: 'openai/gpt-4.1' }) {
+export async function runCommand(
+  task: string,
+  options: {
+    workspace: string
+    model: string
+  } = { workspace: process.cwd(), model: 'openai/gpt-4.1' },
+) {
   console.log(pc.blue('Universal Agent'), pc.dim('v0.1.0'))
   console.log()
   console.log(pc.cyan('Task:'), task)
@@ -17,9 +20,15 @@ export async function runCommand(task: string, options: {
   const eventBus = runtime.getEventBus()
 
   eventBus.on('run.started', () => console.log(pc.dim('[started]')))
-  eventBus.on('agent.thinking', () => process.stdout.write(`${pc.dim('[thinking] ')}`))
-  eventBus.on('tool.call.started', e => process.stdout.write(pc.yellow(`[tool:${e.toolName}] `)))
-  eventBus.on('tool.call.finished', e => process.stdout.write(pc.green(`[done:${e.toolName}] `)))
+  eventBus.on('agent.thinking', () =>
+    process.stdout.write(`${pc.dim('[thinking] ')}`),
+  )
+  eventBus.on('tool.call.started', e =>
+    process.stdout.write(pc.yellow(`[tool:${e.toolName}] `)),
+  )
+  eventBus.on('tool.call.finished', e =>
+    process.stdout.write(pc.green(`[done:${e.toolName}] `)),
+  )
   eventBus.on('run.finished', () => console.log(pc.dim('\n[finished]')))
   eventBus.on('run.failed', e => console.error(pc.red('\n[failed]'), e.error))
 

@@ -1,14 +1,17 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-export async function grepDir(dir: string, pattern: string, depth = 3): Promise<string> {
+export async function grepDir(
+  dir: string,
+  pattern: string,
+  depth = 3,
+): Promise<string> {
   const results: string[] = []
   const maxFiles = 50
   let fileCount = 0
 
   async function walk(currentDir: string, currentDepth: number) {
-    if (currentDepth > depth || fileCount >= maxFiles)
-      return
+    if (currentDepth > depth || fileCount >= maxFiles) return
 
     try {
       const entries = await readdir(currentDir, { withFileTypes: true })
@@ -19,11 +22,23 @@ export async function grepDir(dir: string, pattern: string, depth = 3): Promise<
 
         if (entry.isDirectory()) {
           await walk(fullPath, currentDepth + 1)
-        }
-        else if (entry.isFile()) {
+        } else if (entry.isFile()) {
           const ext = entry.name.split('.').pop() || ''
-          if (!['ts', 'js', 'json', 'md', 'yaml', 'yml', 'txt', 'html', 'css'].includes(ext))
+          if (
+            ![
+              'ts',
+              'js',
+              'json',
+              'md',
+              'yaml',
+              'yml',
+              'txt',
+              'html',
+              'css',
+            ].includes(ext)
+          ) {
             continue
+          }
           fileCount++
           try {
             const content = await readFile(fullPath, 'utf-8')
@@ -33,14 +48,12 @@ export async function grepDir(dir: string, pattern: string, depth = 3): Promise<
                 results.push(`${fullPath}:${i + 1}: ${lines[i].trim()}`)
               }
             }
-          }
-          catch {
+          } catch {
             // skip unreadable files
           }
         }
       }
-    }
-    catch {
+    } catch {
       // skip inaccessible directories
     }
   }
