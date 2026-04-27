@@ -20,19 +20,30 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "typecheck": "pnpm -r exec tsc --noEmit",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^8.2.0",
+    "@baicie/scripts": "^0.1.2",
     "@types/node": "^25.6.0",
     "eslint": "^10.2.1",
     "lint-staged": "^16.4.0",
     "picocolors": "^1.1.1",
     "prettier": "^3.8.3",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^6.0.3",
     "vite": "^8.0.10",
     "vite-plugin-dts": "^4.5.4",
+    "vitepress": "1.6.4",
     "vitest": "^4.1.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": ".git/hooks/pre-commit",
+    "commit-msg": ".git/hooks/commit-msg"
   },
   "lint-staged": {
     "*": {

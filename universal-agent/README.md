@@ -65,9 +65,17 @@ universal-agent/
 │  ├─ coding/
 │  ├─ log-summary/
 │  └─ writing/
-├─ scripts/          # 构建脚本
+├─ docs/             # VitePress 文档
+├─ scripts/          # 共享 tsconfig
 └─ .github/workflows/
 ```
+
+## 文档
+
+````bash
+pnpm docs:dev      # 开发模式
+pnpm docs:build    # 构建静态站点
+pnpm docs:preview  # 预览
 
 ## CLI 命令
 
@@ -83,7 +91,7 @@ agent skill list
 
 # 初始化配置
 agent config init
-```
+````
 
 ## 开发指南
 
