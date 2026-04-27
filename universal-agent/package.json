@@ -1,0 +1,48 @@
+{
+  "name": "universal-agent",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @agent/cli dev",
+    "build": "pnpm -r build",
+    "build:all": "pnpm -r build",
+    "clean": "pnpm -r exec rm -rf dist temp coverage *.tsbuildinfo",
+    "check": "tsc --noEmit",
+    "lint": "eslint --cache --cache-location node_modules/.cache/.eslintcache .",
+    "lint:fix": "pnpm lint --fix",
+    "format": "prettier --write --cache --cache-location node_modules/.cache/.prettiercache .",
+    "format:check": "prettier --check --cache --cache-location node_modules/.cache/.prettiercache .",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "pnpm -r exec tsc --noEmit",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "lint-staged": "^16.0.0",
+    "picocolors": "^1.1.1",
+    "prettier": "^3.4.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0"
+  },
+  "lint-staged": {
+    "*": {
+      "update": "not staged"
+    },
+    "*.{js,ts,mjs,cjs}": [
+      "eslint --fix --cache --cache-location node_modules/.cache/.eslintcache",
+      "prettier --write --cache --cache-location node_modules/.cache/.prettiercache"
+    ],
+    "*.{json,md,yaml,yml,html,css}": [
+      "prettier --write --cache --cache-location node_modules/.cache/.prettiercache"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": ["./scripts/tsconfig.base.json"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "types": ["node", "vitest/globals"],
+    "outDir": "temp"
+  },
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./apps/cli" }
+  ],
+  "include": ["apps/**/*", "packages/**/*", "scripts/**/*"],
+  "exclude": ["**/dist", "**/node_modules", "**/temp"]
+}

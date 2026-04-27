@@ -1,0 +1,30 @@
+{
+  "name": "@agent/cli",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Universal Agent CLI",
+  "license": "MIT",
+  "keywords": ["agent", "cli", "ai"],
+  "bin": {
+    "agent": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "vite build",
+    "dev": "tsx watch src/index.ts",
+    "clean": "rm -rf dist temp",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@agent/core": "workspace:*",
+    "commander": "^13.0.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}

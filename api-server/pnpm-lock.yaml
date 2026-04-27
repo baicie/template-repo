@@ -57,8 +57,8 @@ importers:
         specifier: ^1.10.2
         version: 1.10.2(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(winston@3.19.0)
       nestjs-i18n:
-        specifier: ^10.7.2
-        version: 10.7.2(@apollo/server@5.5.0(graphql@16.13.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.15.1)(express@5.2.1)(rxjs@7.8.2)
+        specifier: ^10.8.1
+        version: 10.8.1(@apollo/server@5.5.0(graphql@16.13.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.15.1)(express@5.2.1)(rxjs@7.8.2)
       passport:
         specifier: ^0.7.0
         version: 0.7.0
@@ -3119,6 +3119,10 @@ packages:
   make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
 
+  make-plural@4.3.0:
+    resolution: {integrity: sha512-xTYd4JVHpSCW+aqDof6w/MebaMVNTVYBZhbB/vi513xXdiPT92JMVCo0Jq8W2UZnzYRFeVbQiQ+I25l13JuKvA==}
+    hasBin: true
+
   makeerror@1.0.12:
     resolution: {integrity: sha512-JmqCvUhmt43madlpFzG4BQzG2Z3m6tvQDNKdClZnO3VbIudJYmxsT0FNJMeiB2+JTSlTQTSbU8QdesVmwJcmLg==}
 
@@ -3144,6 +3148,16 @@ packages:
 
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
+
+  messageformat-formatters@2.0.1:
+    resolution: {integrity: sha512-E/lQRXhtHwGuiQjI7qxkLp8AHbMD5r2217XNe/SREbBlSawe0lOqsFb7rflZJmlQFSULNLIqlcjjsCPlB3m3Mg==}
+
+  messageformat-parser@4.1.3:
+    resolution: {integrity: sha512-2fU3XDCanRqeOCkn7R5zW5VQHWf+T3hH65SzuqRvjatBK7r4uyFa5mEX+k6F9Bd04LVM5G4/BHBTUJsOdW7uyg==}
+
+  messageformat@2.3.0:
+    resolution: {integrity: sha512-uTzvsv0lTeQxYI2y1NPa1lItL5VRI8Gb93Y2K2ue5gBPyrbJxfDi/EYWxh2PKv5yO42AJeeqblS9MJSh/IEk4w==}
+    deprecated: Package renamed as '@messageformat/core', see messageformat.github.io for more details. 'messageformat@4' will eventually provide a polyfill for Intl.MessageFormat, once it's been defined by Unicode & ECMA.
 
   methods@1.1.2:
     resolution: {integrity: sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==}
@@ -3251,8 +3265,8 @@ packages:
       '@nestjs/common': ^5.0.0 || ^6.6.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
       winston: ^3.0.0
 
-  nestjs-i18n@10.7.2:
-    resolution: {integrity: sha512-78gQDutPl7BSL2mKeyWVdFwXgJNWy/3owYJoTPma7NI+dTLQbnoV8rbZ80wpGMcU191/eeVUG6kgxXZs1lIIbw==}
+  nestjs-i18n@10.8.1:
+    resolution: {integrity: sha512-9UOvaG17Gx4TVt8dYjn1781IMgs2s1b8PbIj9hhW9HP0v82ilsZpJNCKQuRWsj59arOaIhS4d5rCiG/8Pzp7Ug==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
@@ -7563,6 +7577,10 @@ snapshots:
 
   make-error@1.3.6: {}
 
+  make-plural@4.3.0:
+    optionalDependencies:
+      minimist: 1.2.8
+
   makeerror@1.0.12:
     dependencies:
       tmpl: 1.0.5
@@ -7580,6 +7598,16 @@ snapshots:
   merge-descriptors@2.0.0: {}
 
   merge-stream@2.0.0: {}
+
+  messageformat-formatters@2.0.1: {}
+
+  messageformat-parser@4.1.3: {}
+
+  messageformat@2.3.0:
+    dependencies:
+      make-plural: 4.3.0
+      messageformat-formatters: 2.0.1
+      messageformat-parser: 4.1.3
 
   methods@1.1.2: {}
 
@@ -7657,7 +7685,7 @@ snapshots:
       fast-safe-stringify: 2.1.1
       winston: 3.19.0
 
-  nestjs-i18n@10.7.2(@apollo/server@5.5.0(graphql@16.13.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.15.1)(express@5.2.1)(rxjs@7.8.2):
+  nestjs-i18n@10.8.1(@apollo/server@5.5.0(graphql@16.13.2))(@nestjs/common@11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.15.1)(express@5.2.1)(rxjs@7.8.2):
     dependencies:
       '@as-integrations/express5': 1.1.2(@apollo/server@5.5.0(graphql@16.13.2))(express@5.2.1)
       '@nestjs/common': 11.1.19(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -7667,6 +7695,7 @@ snapshots:
       cookie: 1.1.1
       iterare: 1.2.1
       js-yaml: 4.1.1
+      messageformat: 2.3.0
       rxjs: 7.8.2
       string-format: 2.0.0
     optionalDependencies:
