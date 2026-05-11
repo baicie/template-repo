@@ -2,7 +2,7 @@ import { readdirSync, statSync, existsSync, rmSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { spawn } from 'node:child_process'
 
-const CONCURRENCY = 3 // 并发数量，可按机器性能调整
+const CONCURRENCY = 1
 
 function removeNodeModules(dirPath, dirName) {
   const nodeModulesPath = join(dirPath, 'node_modules')
@@ -43,14 +43,12 @@ function hasPackageJson(dirPath) {
   return existsSync(join(dirPath, 'package.json'))
 }
 
-function installDependencies(dirPath, dirName) {
+function runCommand(command, args, cwd) {
   return new Promise(resolvePromise => {
-    console.log(`\n📦 正在安装 ${dirName} 的依赖...`)
-
-    const child = spawn('pnpm', ['install'], {
-      cwd: resolve(dirPath),
+    const child = spawn(command, args, {
+      cwd,
       stdio: 'inherit',
-      shell: true,
+      shell: process.platform === 'win32',
       env: {
         ...process.env,
         FORCE_COLOR: '1',
@@ -58,33 +56,44 @@ function installDependencies(dirPath, dirName) {
     })
 
     child.on('close', code => {
-      if (code === 0) {
-        console.log(`✅ ${dirName} 依赖安装完成`)
-        removeNodeModules(dirPath, dirName)
-
-        resolvePromise({
-          dirName,
-          success: true,
-        })
-      } else {
-        console.error(`❌ ${dirName} 依赖安装失败，退出码：${code}`)
-
-        resolvePromise({
-          dirName,
-          success: false,
-        })
-      }
+      resolvePromise(code === 0)
     })
 
     child.on('error', error => {
-      console.error(`❌ ${dirName} 依赖安装失败:`, error.message)
-
-      resolvePromise({
-        dirName,
-        success: false,
-      })
+      console.error(`❌ 命令执行失败: ${command} ${args.join(' ')}`)
+      console.error(error.message)
+      resolvePromise(false)
     })
   })
+}
+
+async function installDependencies(dirPath, dirName) {
+  console.log(`\n📦 正在处理 ${dirName}...`)
+
+  const cwd = resolve(dirPath)
+
+  console.log(`🔐 正在执行 ${dirName} 的 pnpm approve-builds...`)
+  await runCommand('pnpm', ['approve-builds', '--all'], cwd)
+
+  console.log(`📥 正在安装 ${dirName} 的依赖...`)
+  const installSuccess = await runCommand('pnpm', ['install'], cwd)
+
+  if (installSuccess) {
+    console.log(`✅ ${dirName} 依赖安装完成`)
+    removeNodeModules(dirPath, dirName)
+
+    return {
+      dirName,
+      success: true,
+    }
+  }
+
+  console.error(`❌ ${dirName} 依赖安装失败`)
+
+  return {
+    dirName,
+    success: false,
+  }
 }
 
 async function runWithConcurrency(tasks, concurrency) {
