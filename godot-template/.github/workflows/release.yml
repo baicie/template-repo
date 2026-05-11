@@ -1,0 +1,35 @@
+name: Release Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version, for example v0.1.0'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-linux-pck:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.2.2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import project
+        run: godot --headless --import --quit
+      - name: Build PCK
+        run: |
+          mkdir -p dist
+          godot --headless --export-pack "Linux/X11" dist/zhenyaosi-${{ inputs.version }}.pck
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zhenyaosi-${{ inputs.version }}
+          path: dist/*
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.version }}
+          files: dist/*

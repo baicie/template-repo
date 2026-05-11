@@ -1,0 +1,31 @@
+# Godot
+.godot/
+.import/
+export.cfg
+export_presets.cfg.bak
+*.translation
+
+# Builds
+builds/
+dist/
+*.pck
+*.zip
+*.exe
+*.x86_64
+*.app
+*.apk
+*.aab
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+# .vscode/settings.json
+.idea/
+
+# Secrets
+.env
+*.keystore
+*.p12
+secrets/

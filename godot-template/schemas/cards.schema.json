@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "cards"
+  ],
+  "properties": {
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "cost",
+          "type",
+          "rarity",
+          "target",
+          "effects"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "cost": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string"
+          },
+          "rarity": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "effects": {
+            "type": "array"
+          },
+          "upgrade": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

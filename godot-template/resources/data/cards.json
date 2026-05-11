@@ -1,0 +1,794 @@
+{
+  "cards": [
+    {
+      "id": "zhan_yao_dao",
+      "name": "斩妖刀",
+      "desc": "造成 6 点伤害。",
+      "cost": 1,
+      "type": "attack",
+      "rarity": "starter",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 6
+        }
+      ],
+      "upgrade": {
+        "name": "斩妖刀+",
+        "desc": "造成 9 点伤害。",
+        "cost": 1,
+        "effects": [
+          {
+            "type": "damage",
+            "value": 9
+          }
+        ]
+      }
+    },
+    {
+      "id": "jin_yi_hu_shen",
+      "name": "锦衣护身",
+      "desc": "获得 5 点格挡。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "starter",
+      "target": "self",
+      "effects": [
+        {
+          "type": "block",
+          "value": 5
+        }
+      ],
+      "upgrade": {
+        "name": "锦衣护身+",
+        "desc": "获得 8 点格挡。",
+        "cost": 1,
+        "effects": [
+          {
+            "type": "block",
+            "value": 8
+          }
+        ]
+      }
+    },
+    {
+      "id": "zhen_yao_fu",
+      "name": "镇妖符",
+      "desc": "给予敌人 1 层镇压。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "starter",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "apply_enemy_status",
+          "status": "zhenya",
+          "value": 1
+        }
+      ],
+      "upgrade": {
+        "name": "镇妖符+",
+        "desc": "给予敌人 2 层镇压。",
+        "cost": 1,
+        "effects": [
+          {
+            "type": "apply_enemy_status",
+            "status": "zhenya",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "huo_chong_qi_she",
+      "name": "火铳齐射",
+      "desc": "造成 4 点伤害 2 次。",
+      "cost": 1,
+      "type": "attack",
+      "rarity": "common",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 4
+        },
+        {
+          "type": "damage",
+          "value": 4
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "fei_yu_fu",
+      "name": "飞鱼服",
+      "desc": "获得 8 点格挡。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "block",
+          "value": 8
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "dong_chang_mi_bao",
+      "name": "东厂密报",
+      "desc": "抽 1 张牌，获得 1 点能量。",
+      "cost": 0,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "draw",
+          "value": 1
+        },
+        {
+          "type": "gain_energy",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "ji_yao_ling",
+      "name": "缉妖令",
+      "desc": "获得 1 层国运，抽 1 张牌。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "gain_player_status",
+          "status": "guoyun",
+          "value": 1
+        },
+        {
+          "type": "draw",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "po_xie_zhan",
+      "name": "破邪斩",
+      "desc": "造成 7 点伤害。若敌人有镇压，额外造成 4 点伤害。",
+      "cost": 1,
+      "type": "attack",
+      "rarity": "common",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "if_enemy_has_status_damage_bonus",
+          "required_status": "zhenya",
+          "value": 7,
+          "bonus": 4
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "tie_suo_lan_jiang",
+      "name": "铁索拦江",
+      "desc": "获得 6 点格挡。给予敌人 1 层虚弱。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "common",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "block",
+          "value": 6
+        },
+        {
+          "type": "apply_enemy_status",
+          "status": "weak",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "ye_xun",
+      "name": "夜巡",
+      "desc": "获得 3 点格挡，抽 1 张牌。",
+      "cost": 0,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "block",
+          "value": 3
+        },
+        {
+          "type": "draw",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "fu_mo_jian",
+      "name": "伏魔箭",
+      "desc": "造成 10 点伤害。",
+      "cost": 1,
+      "type": "attack",
+      "rarity": "common",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 10
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "kai_cang_zhen_zai",
+      "name": "开仓赈灾",
+      "desc": "回复 3 点生命，获得 1 层妖蚀。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "heal",
+          "value": 3
+        },
+        {
+          "type": "gain_player_status",
+          "status": "yaoshi",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "bing_bu_diao_ling",
+      "name": "兵部调令",
+      "desc": "抽 2 张牌。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "draw",
+          "value": 2
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "huo_you",
+      "name": "火油",
+      "desc": "给予敌人 4 层燃烧。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "common",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "apply_enemy_status",
+          "status": "burn",
+          "value": 4
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "zhan_cao_chu_gen",
+      "name": "斩草除根",
+      "desc": "造成 8 点伤害。",
+      "cost": 1,
+      "type": "attack",
+      "rarity": "common",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 8
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "gu_shou_cheng_men",
+      "name": "固守城门",
+      "desc": "获得 14 点格挡。",
+      "cost": 2,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "block",
+          "value": 14
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "yao_xue_ru_mo",
+      "name": "妖血入墨",
+      "desc": "获得 1 层妖蚀，抽 2 张牌。",
+      "cost": 0,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "gain_player_status",
+          "status": "yaoshi",
+          "value": 1
+        },
+        {
+          "type": "draw",
+          "value": 2
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "zhen_hun_ling",
+      "name": "镇魂铃",
+      "desc": "敌方全体获得 1 层镇压。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "common",
+      "target": "all_enemies",
+      "effects": [
+        {
+          "type": "apply_all_enemy_status",
+          "status": "zhenya",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "duan_an",
+      "name": "断案",
+      "desc": "抽 2 张牌。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "common",
+      "target": "self",
+      "effects": [
+        {
+          "type": "draw",
+          "value": 2
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "bai_hu_tu_xi",
+      "name": "百户突袭",
+      "desc": "造成 16 点伤害。",
+      "cost": 2,
+      "type": "attack",
+      "rarity": "common",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 16
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "yuan_yang_zhen",
+      "name": "鸳鸯阵",
+      "desc": "获得 10 点格挡。下回合简化为获得 1 点能量。",
+      "cost": 2,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "self",
+      "effects": [
+        {
+          "type": "block",
+          "value": 10
+        },
+        {
+          "type": "gain_energy",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "jin_yi_ye_xing",
+      "name": "锦衣夜行",
+      "desc": "抽 2 张牌，获得 1 点能量。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "self",
+      "effects": [
+        {
+          "type": "draw",
+          "value": 2
+        },
+        {
+          "type": "gain_energy",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "dong_chang_qing_xi",
+      "name": "东厂清洗",
+      "desc": "造成 10 点伤害。若敌人有镇压，额外造成 10 点伤害。",
+      "cost": 2,
+      "type": "attack",
+      "rarity": "uncommon",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "if_enemy_has_status_damage_bonus",
+          "required_status": "zhenya",
+          "value": 10,
+          "bonus": 10
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "tian_ming_wei_jue",
+      "name": "天命未绝",
+      "desc": "获得 6 点格挡。若国运≥2，抽 1 张牌。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "self",
+      "effects": [
+        {
+          "type": "block",
+          "value": 6
+        },
+        {
+          "type": "if_player_status_draw",
+          "status": "guoyun",
+          "min": 2,
+          "draw": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "long_mai_hui_xiang",
+      "name": "龙脉回响",
+      "desc": "获得 2 层国运，获得 1 层妖蚀。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "self",
+      "effects": [
+        {
+          "type": "gain_player_status",
+          "status": "guoyun",
+          "value": 2
+        },
+        {
+          "type": "gain_player_status",
+          "status": "yaoshi",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "min_yuan_fei_teng",
+      "name": "民怨沸腾",
+      "desc": "获得 2 层妖蚀。敌方全体获得 2 层镇压。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "all_enemies",
+      "effects": [
+        {
+          "type": "gain_player_status",
+          "status": "yaoshi",
+          "value": 2
+        },
+        {
+          "type": "apply_all_enemy_status",
+          "status": "zhenya",
+          "value": 2
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "fu_huo_lian_zhu",
+      "name": "符火连诛",
+      "desc": "造成 3 点伤害 4 次。",
+      "cost": 1,
+      "type": "attack",
+      "rarity": "uncommon",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 3
+        },
+        {
+          "type": "damage",
+          "value": 3
+        },
+        {
+          "type": "damage",
+          "value": 3
+        },
+        {
+          "type": "damage",
+          "value": 3
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "zhen_yao_da_yu",
+      "name": "镇妖大狱",
+      "desc": "敌方全体获得 2 层镇压。获得 8 点格挡。",
+      "cost": 2,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "all_enemies",
+      "effects": [
+        {
+          "type": "apply_all_enemy_status",
+          "status": "zhenya",
+          "value": 2
+        },
+        {
+          "type": "block",
+          "value": 8
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "xue_shu_mi_zou",
+      "name": "血书密奏",
+      "desc": "失去 3 点生命，抽 3 张牌。",
+      "cost": 0,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "self",
+      "effects": [
+        {
+          "type": "lose_hp",
+          "value": 3
+        },
+        {
+          "type": "draw",
+          "value": 3
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "zhan_li_jue",
+      "name": "斩立决",
+      "desc": "造成 20 点伤害。",
+      "cost": 2,
+      "type": "attack",
+      "rarity": "uncommon",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "value": 20
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "guo_shi_fu_zhao",
+      "name": "国师符诏",
+      "desc": "获得 1 层力量。",
+      "cost": 1,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "self",
+      "effects": [
+        {
+          "type": "gain_player_status",
+          "status": "strength",
+          "value": 1
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "shan_he_you_zai",
+      "name": "山河犹在",
+      "desc": "获得 24 点格挡。",
+      "cost": 2,
+      "type": "skill",
+      "rarity": "uncommon",
+      "target": "self",
+      "effects": [
+        {
+          "type": "block",
+          "value": 24
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "tian_zi_jian",
+      "name": "天子剑",
+      "desc": "造成 30 点伤害，每层国运额外 +5。",
+      "cost": 3,
+      "type": "attack",
+      "rarity": "rare",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "per_player_status_damage",
+          "status": "guoyun",
+          "value": 30,
+          "per": 5
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "chuan_guo_yu_xi",
+      "name": "传国玉玺",
+      "desc": "获得 3 层国运。",
+      "cost": 2,
+      "type": "skill",
+      "rarity": "rare",
+      "target": "self",
+      "effects": [
+        {
+          "type": "gain_player_status",
+          "status": "guoyun",
+          "value": 3
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "yi_yao_zhi_yao",
+      "name": "以妖制妖",
+      "desc": "造成伤害：8 + 每层妖蚀 8。",
+      "cost": 1,
+      "type": "attack",
+      "rarity": "rare",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "per_player_status_damage",
+          "status": "yaoshi",
+          "value": 8,
+          "per": 8
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "wan_min_qing_ming",
+      "name": "万民请命",
+      "desc": "获得 20 点格挡。清除 2 层妖蚀。",
+      "cost": 2,
+      "type": "skill",
+      "rarity": "rare",
+      "target": "self",
+      "effects": [
+        {
+          "type": "block",
+          "value": 20
+        },
+        {
+          "type": "remove_player_status",
+          "status": "yaoshi",
+          "value": 2
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "jiu_men_feng_jin",
+      "name": "九门封禁",
+      "desc": "敌方全体获得 3 层镇压和 2 层虚弱。",
+      "cost": 2,
+      "type": "skill",
+      "rarity": "rare",
+      "target": "all_enemies",
+      "effects": [
+        {
+          "type": "apply_all_enemy_status",
+          "status": "zhenya",
+          "value": 3
+        },
+        {
+          "type": "apply_all_enemy_status",
+          "status": "weak",
+          "value": 2
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "wang_chao_can_huo",
+      "name": "王朝残火",
+      "desc": "获得 2 点能量，抽 2 张牌。",
+      "cost": 0,
+      "type": "skill",
+      "rarity": "rare",
+      "target": "self",
+      "effects": [
+        {
+          "type": "gain_energy",
+          "value": 2
+        },
+        {
+          "type": "draw",
+          "value": 2
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "long_qi_fan_shi",
+      "name": "龙气反噬",
+      "desc": "造成 18 点伤害，每层国运额外 +6。",
+      "cost": 2,
+      "type": "attack",
+      "rarity": "rare",
+      "target": "enemy",
+      "effects": [
+        {
+          "type": "per_player_status_damage",
+          "status": "guoyun",
+          "value": 18,
+          "per": 6
+        }
+      ],
+      "upgrade": {}
+    },
+    {
+      "id": "zhen_guo_da_zhen",
+      "name": "镇国大阵",
+      "desc": "获得 3 层国运。敌方全体 3 层镇压。获得 20 格挡。",
+      "cost": 3,
+      "type": "skill",
+      "rarity": "rare",
+      "target": "all_enemies",
+      "effects": [
+        {
+          "type": "gain_player_status",
+          "status": "guoyun",
+          "value": 3
+        },
+        {
+          "type": "apply_all_enemy_status",
+          "status": "zhenya",
+          "value": 3
+        },
+        {
+          "type": "block",
+          "value": 20
+        }
+      ],
+      "upgrade": {}
+    }
+  ]
+}

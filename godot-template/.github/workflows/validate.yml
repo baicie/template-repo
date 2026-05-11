@@ -1,0 +1,39 @@
+name: Validate
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  data-and-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate JSON data
+        run: python tools/validate_json.py
+      - name: Run Python tests
+        run: |
+          python -m pip install --upgrade pip pytest
+          pytest -q
+
+  godot-import-check:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.2.2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import project in headless mode
+        run: godot --headless --import --quit
+      - name: Export PCK smoke test
+        run: |
+          mkdir -p builds/linux
+          godot --headless --export-pack "Linux/X11" builds/linux/zhenyaosi.pck
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zhenyaosi-pck
+          path: builds/linux/zhenyaosi.pck

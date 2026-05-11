@@ -1,0 +1,429 @@
+{
+  "enemies": [
+    {
+      "id": "e_epiao",
+      "name": "饿殍",
+      "max_hp": 22,
+      "block": 0,
+      "region": 1,
+      "moves": [
+        {
+          "id": "撕咬",
+          "name": "撕咬",
+          "intent": "attack",
+          "damage": 6,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "哀嚎",
+          "name": "哀嚎",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "yaoshi",
+              "value": 1
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_huyao",
+      "name": "狐妖",
+      "max_hp": 28,
+      "block": 0,
+      "region": 1,
+      "moves": [
+        {
+          "id": "爪击",
+          "name": "爪击",
+          "intent": "attack",
+          "damage": 7,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "魅惑",
+          "name": "魅惑",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "weak",
+              "value": 1
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_shanzei",
+      "name": "山贼",
+      "max_hp": 32,
+      "block": 0,
+      "region": 1,
+      "moves": [
+        {
+          "id": "劈砍",
+          "name": "劈砍",
+          "intent": "attack",
+          "damage": 9,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "抢掠防备",
+          "name": "抢掠防备",
+          "intent": "defend",
+          "block": 8,
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_xiedao_tongzi",
+      "name": "邪道童子",
+      "max_hp": 26,
+      "block": 0,
+      "region": 1,
+      "moves": [
+        {
+          "id": "符击",
+          "name": "符击",
+          "intent": "attack",
+          "damage": 5,
+          "hits": 2,
+          "weight": 70
+        },
+        {
+          "id": "施咒",
+          "name": "施咒",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "yaoshi",
+              "value": 2
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_zhiren_bing",
+      "name": "纸人兵",
+      "max_hp": 35,
+      "block": 8,
+      "region": 1,
+      "moves": [
+        {
+          "id": "纸刃",
+          "name": "纸刃",
+          "intent": "attack",
+          "damage": 8,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "重叠",
+          "name": "重叠",
+          "intent": "defend",
+          "block": 8,
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_tanguan",
+      "name": "贪官",
+      "max_hp": 45,
+      "block": 0,
+      "region": 2,
+      "moves": [
+        {
+          "id": "搜刮",
+          "name": "搜刮",
+          "intent": "defend",
+          "block": 12,
+          "weight": 30
+        },
+        {
+          "id": "诬陷",
+          "name": "诬陷",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "vulnerable",
+              "value": 1
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_changwei_pantu",
+      "name": "厂卫叛徒",
+      "max_hp": 50,
+      "block": 0,
+      "region": 2,
+      "moves": [
+        {
+          "id": "暗刺",
+          "name": "暗刺",
+          "intent": "attack",
+          "damage": 14,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "潜伏压迫",
+          "name": "潜伏压迫",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "vulnerable",
+              "value": 1
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_heilian_jiaotu",
+      "name": "黑莲教徒",
+      "max_hp": 42,
+      "block": 0,
+      "region": 2,
+      "moves": [
+        {
+          "id": "邪火",
+          "name": "邪火",
+          "intent": "attack",
+          "damage": 10,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "献祭咒",
+          "name": "献祭咒",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "yaoshi",
+              "value": 1
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_tiejia_shi",
+      "name": "铁甲尸",
+      "max_hp": 60,
+      "block": 15,
+      "region": 2,
+      "moves": [
+        {
+          "id": "重击",
+          "name": "重击",
+          "intent": "attack",
+          "damage": 18,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "铁皮",
+          "name": "铁皮",
+          "intent": "defend",
+          "block": 12,
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_baigu_gongshou",
+      "name": "白骨弓手",
+      "max_hp": 38,
+      "block": 0,
+      "region": 2,
+      "moves": [
+        {
+          "id": "连射",
+          "name": "连射",
+          "intent": "attack",
+          "damage": 4,
+          "hits": 4,
+          "weight": 70
+        },
+        {
+          "id": "瞄准",
+          "name": "瞄准",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "vulnerable",
+              "value": 1
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_hebo_canhun",
+      "name": "河伯残魂",
+      "max_hp": 70,
+      "block": 0,
+      "region": 3,
+      "moves": [
+        {
+          "id": "淹没",
+          "name": "淹没",
+          "intent": "attack",
+          "damage": 16,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "水患",
+          "name": "水患",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "weak",
+              "value": 1
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_longmai_zhuchong",
+      "name": "龙脉蛀虫",
+      "max_hp": 65,
+      "block": 0,
+      "region": 3,
+      "moves": [
+        {
+          "id": "毒噬",
+          "name": "毒噬",
+          "intent": "attack",
+          "damage": 12,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "啃噬龙脉",
+          "name": "啃噬龙脉",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "yaoshi",
+              "value": 2
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_baimu_yao",
+      "name": "百目妖",
+      "max_hp": 58,
+      "block": 0,
+      "region": 3,
+      "moves": [
+        {
+          "id": "乱视",
+          "name": "乱视",
+          "intent": "attack",
+          "damage": 6,
+          "hits": 3,
+          "weight": 70
+        },
+        {
+          "id": "凝视",
+          "name": "凝视",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "weak",
+              "value": 1
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_wutou_jiangjun",
+      "name": "无头将军",
+      "max_hp": 80,
+      "block": 0,
+      "region": 3,
+      "moves": [
+        {
+          "id": "冲阵",
+          "name": "冲阵",
+          "intent": "attack",
+          "damage": 20,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "战吼",
+          "name": "战吼",
+          "intent": "defend",
+          "block": 10,
+          "weight": 30
+        }
+      ]
+    },
+    {
+      "id": "e_tianzai_huashen",
+      "name": "天灾化身",
+      "max_hp": 75,
+      "block": 0,
+      "region": 3,
+      "moves": [
+        {
+          "id": "疫气",
+          "name": "疫气",
+          "intent": "attack",
+          "damage": 8,
+          "hits": 1,
+          "weight": 70
+        },
+        {
+          "id": "饥荒",
+          "name": "饥荒",
+          "intent": "debuff",
+          "effects": [
+            {
+              "type": "gain_player_status",
+              "status": "yaoshi",
+              "value": 3
+            }
+          ],
+          "weight": 30
+        }
+      ]
+    }
+  ]
+}

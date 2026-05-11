@@ -1,0 +1,124 @@
+{
+  "version": "2.0.0",
+  "configurations": [
+    {
+      "name": "验证 JSON 数据",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "pytest", "tools/validate_json.py", "-v", "--tb=short"],
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "group": "验证",
+        "order": 1
+      }
+    },
+    {
+      "name": "JSON 语法检查",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["tools/validate_json.py"],
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "group": "验证",
+        "order": 2
+      }
+    },
+    {
+      "name": "运行所有 pytest",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "pytest", "-v", "--tb=short"],
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "group": "测试",
+        "order": 1
+      }
+    },
+    {
+      "name": "Python flake8 检查",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "flake8",
+      "runtimeArgs": ["tools/", "--max-line-length=120", "--extend-ignore=E203,W503"],
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "group": "代码质量",
+        "order": 1
+      }
+    },
+    {
+      "name": "Python black 格式化",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "black",
+      "runtimeArgs": ["tools/", "--line-length=120"],
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "group": "代码质量",
+        "order": 2
+      }
+    },
+    {
+      "name": "Godot 导入检查（无头）",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "godot",
+      "runtimeArgs": ["--headless", "--import", "--quit"],
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "group": "Godot",
+        "order": 1
+      }
+    },
+    {
+      "name": "Godot 导出 PCK",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "godot",
+      "runtimeArgs": ["--headless", "--export-pack", "Linux/X11", "builds/linux/zhenyaosi.pck"],
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "group": "Godot",
+        "order": 2
+      }
+    },
+    {
+      "name": "Godot 导出 Web",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "godot",
+      "runtimeArgs": ["--headless", "--export-release", "Web", "builds/web/index.html"],
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "group": "Godot",
+        "order": 3
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "完整构建流程",
+      "stopAll": true,
+      "configurations": [
+        "JSON 语法检查",
+        "Godot 导入检查（无头）",
+        "Godot 导出 PCK"
+      ],
+      "presentation": {
+        "group": "Godot",
+        "order": 100
+      }
+    }
+  ]
+}

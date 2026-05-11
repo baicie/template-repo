@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "enemies"
+  ],
+  "properties": {
+    "enemies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "max_hp",
+          "moves"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "max_hp": {
+            "type": "integer"
+          },
+          "block": {
+            "type": "integer"
+          },
+          "region": {
+            "type": "integer"
+          },
+          "moves": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

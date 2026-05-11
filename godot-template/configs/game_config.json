@@ -1,0 +1,6 @@
+{
+  "version": "0.1.0",
+  "default_locale": "zh_CN",
+  "base_energy": 3,
+  "base_draw": 5
+}

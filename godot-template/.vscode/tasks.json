@@ -1,0 +1,150 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "验证 JSON 数据",
+      "detail": "运行 Python JSON 验证脚本（包含 pytest）",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/tools && python -m pytest validate_json.py -v",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "JSON 校验（快速）",
+      "detail": "仅运行 JSON 语法检查（不依赖 pytest）",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/tools && python validate_json.py",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Godot 导入检查",
+      "detail": "无头模式导入项目资源（需要 Godot CLI）",
+      "type": "shell",
+      "command": "godot --headless --import --quit",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "导出 Linux 二进制",
+      "detail": "导出 PCK 包（需要 Godot CLI + 导出模板）",
+      "type": "shell",
+      "command": "godot --headless --export-pack \"Linux/X11\" builds/linux/zhenyaosi.pck",
+      "group": "build",
+      "dependsOn": ["JSON 校验（快速）"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "导出 Web 版本",
+      "detail": "导出 Web/HTML5 版本（需要 Godot CLI + Web 导出模板）",
+      "type": "shell",
+      "command": "godot --headless --export-release \"Web\" builds/web/index.html",
+      "group": "build",
+      "dependsOn": ["JSON 校验（快速）"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "完整构建",
+      "detail": "验证 JSON + 导入检查 + 导出 PCK",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/tools && python validate_json.py && godot --headless --import --quit && godot --headless --export-pack \"Linux/X11\" builds/linux/zhenyaosi.pck",
+      "group": "build",
+      "dependsOn": ["JSON 校验（快速）"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "运行 pytest",
+      "detail": "运行所有 Python 测试",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && python -m pytest -v",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Python 类型检查（mypy）",
+      "detail": "对 Python 代码进行静态类型检查（需要 mypy）",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && python -m mypy tools/ --ignore-missing-imports",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "安装开发依赖",
+      "detail": "安装 Python 开发依赖（pytest、flake8、black 等）",
+      "type": "shell",
+      "command": "pip install pytest jsonschema flake8 black mypy",
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "格式化 GDScript",
+      "detail": "格式化所有 GDScript 文件（需要 godot-tools 扩展）",
+      "type": "shell",
+      "command": "godot --headless -s scripts/format_gdscript.gd --quit || echo '格式化脚本不存在，请手动格式化'",
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "clear": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://battle"]
+
+[ext_resource type="Script" path="res://scripts/battle/BattleController.gd" id="1"]
+
+[node name="BattleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="PlayerLabel" type="Label" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Player"
+
+[node name="EnemyBox" type="VBoxContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HandBox" type="HBoxContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EndTurnButton" type="Button" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "End Turn"
+
+[node name="LogLabel" type="RichTextLabel" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 120)
+fit_content = true

@@ -1,0 +1,156 @@
+{
+  "[gdscript]": {
+    "editor.defaultFormatter": "geequlim.godot-tools",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.rulers": [100],
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.rulers": [88, 120],
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+  },
+  "[ini]": {
+    "editor.defaultFormatter": "editorconfig.editorconfig",
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+  },
+
+  "files.associations": {
+    "*.gd": "gdscript",
+    "*.tscn": "ini",
+    "*.tres": "ini",
+    "*.cfg": "ini",
+    "*.godot": "ini",
+    "project.godot": "ini"
+  },
+
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "editor.renderWhitespace": "boundary",
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.suggest.showStatusBar": true,
+  "editor.inlineSuggest.enabled": true,
+
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": false,
+  "python.formatting.provider": "black",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.indexing": true,
+  "[python]": {
+    "python.analysis.lintingEnabled": true
+  },
+
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["tools/validate_json.py", "-v", "--tb=short"],
+  "python.testing.unittestEnabled": false,
+
+  "json.schemas": [
+    {
+      "fileMatch": ["cards.json"],
+      "url": "./schemas/cards.schema.json"
+    },
+    {
+      "fileMatch": ["enemies.json"],
+      "url": "./schemas/enemies.schema.json"
+    }
+  ],
+  "json.format.enable": true,
+
+  "yaml.schemas": {
+    "github-actions": ".github/workflows/*.yml"
+  },
+
+  "godot-tools.gdscript.format_on_save": true,
+  "godot-tools.gdscript.add_spaces_after_try": true,
+  "godot-tools.gdscript.spaces_after_try": 1,
+
+  "cSpell.language": "en,zh-CN",
+  "cSpell.ignoreWords": [
+    "gdscript",
+    "godot",
+    "zhenyaosi",
+    "zhenyao",
+    "guoyun",
+    "yaoshi",
+    "CardExecutor",
+    "BattleController",
+    "EffectResolver",
+    "StatusManager",
+    "EnemyAI"
+  ],
+  "cSpell.enableFiletypes": [
+    "gdscript",
+    "json",
+    "yaml",
+    "markdown"
+  ],
+
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "project.godot": ".godot/, .importing/",
+    "*.gd": "*.gd.bak",
+    "cards.json": "cards.schema.json",
+    "enemies.json": "enemies.schema.json"
+  },
+
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.cursorBlinking": true,
+
+  "security.workspace.trust.enabled": true,
+  "workbench.editor.closeOnFileDelete": "prompt",
+  "workbench.startupEditor": "welcomePage",
+  "window.zoomLevel": 0,
+
+  "[gdscript]": {
+    "editor.defaultFormatter": "geequlim.godot-tools"
+  }
+}
