@@ -17,12 +17,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "^19.2.5"
+    "react": "^19.2.6"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
     "@types/react": "^19.2.14",
-    "rolldown": "1.0.0-rc.17",
+    "rolldown": "1.0.0",
     "typescript": "^6.0.3"
   }
 }

@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
-    "rolldown": "1.0.0-rc.17",
+    "rolldown": "1.0.0",
     "typescript": "^6.0.3"
   }
 }

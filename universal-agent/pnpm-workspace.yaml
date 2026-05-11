@@ -14,3 +14,7 @@ settings:
 
 overrides:
   vite: ^8.0.10
+
+allowBuilds:
+  esbuild: set this to true or false
+  simple-git-hooks: set this to true or false

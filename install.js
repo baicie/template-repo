@@ -1,10 +1,9 @@
 import { readdirSync, statSync, existsSync, rmSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { execSync } from 'node:child_process'
+import { spawn } from 'node:child_process'
 
-/**
- * 删除 node_modules 目录
- */
+const CONCURRENCY = 3 // 并发数量，可按机器性能调整
+
 function removeNodeModules(dirPath, dirName) {
   const nodeModulesPath = join(dirPath, 'node_modules')
 
@@ -18,12 +17,9 @@ function removeNodeModules(dirPath, dirName) {
   }
 }
 
-/**
- * 检查目录是否应该被排除
- */
 function shouldExclude(dir) {
   const excludePatterns = [
-    /^\./, // 以点开头的目录（如 .git, .vscode 等）
+    /^\./,
     'node_modules',
     'dist',
     'build',
@@ -31,92 +27,146 @@ function shouldExclude(dir) {
     '.nuxt',
     '.output',
     'logs',
-    'uploads'
+    'uploads',
   ]
 
   return excludePatterns.some(pattern => {
     if (typeof pattern === 'string') {
       return dir === pattern
     }
+
     return pattern.test(dir)
   })
 }
 
-/**
- * 检查目录是否包含 package.json
- */
 function hasPackageJson(dirPath) {
-  const packageJsonPath = join(dirPath, 'package.json')
-  return existsSync(packageJsonPath)
+  return existsSync(join(dirPath, 'package.json'))
 }
 
-/**
- * 在指定目录执行安装命令
- */
 function installDependencies(dirPath, dirName) {
-  console.log(`\n📦 正在安装 ${dirName} 的依赖...`)
+  return new Promise(resolvePromise => {
+    console.log(`\n📦 正在安装 ${dirName} 的依赖...`)
 
-  try {
-    const cwd = resolve(dirPath)
-    execSync('pnpm install', {
-      cwd,
+    const child = spawn('pnpm', ['install'], {
+      cwd: resolve(dirPath),
       stdio: 'inherit',
-      env: { ...process.env, FORCE_COLOR: '1' }
+      shell: true,
+      env: {
+        ...process.env,
+        FORCE_COLOR: '1',
+      },
     })
-    console.log(`✅ ${dirName} 依赖安装完成`)
 
-    removeNodeModules(dirPath, dirName)
-  } catch (error) {
-    console.error(`❌ ${dirName} 依赖安装失败:`, error.message)
-  }
+    child.on('close', code => {
+      if (code === 0) {
+        console.log(`✅ ${dirName} 依赖安装完成`)
+        removeNodeModules(dirPath, dirName)
+
+        resolvePromise({
+          dirName,
+          success: true,
+        })
+      } else {
+        console.error(`❌ ${dirName} 依赖安装失败，退出码：${code}`)
+
+        resolvePromise({
+          dirName,
+          success: false,
+        })
+      }
+    })
+
+    child.on('error', error => {
+      console.error(`❌ ${dirName} 依赖安装失败:`, error.message)
+
+      resolvePromise({
+        dirName,
+        success: false,
+      })
+    })
+  })
 }
 
-/**
- * 主函数：遍历根目录下的所有项目并安装依赖
- */
-function main() {
+async function runWithConcurrency(tasks, concurrency) {
+  const results = []
+  const executing = new Set()
+
+  for (const task of tasks) {
+    const promise = task().then(result => {
+      executing.delete(promise)
+      results.push(result)
+    })
+
+    executing.add(promise)
+
+    if (executing.size >= concurrency) {
+      await Promise.race(executing)
+    }
+  }
+
+  await Promise.all(executing)
+
+  return results
+}
+
+async function main() {
   console.log('🚀 开始批量安装项目依赖...\n')
 
   const rootDir = process.cwd()
   const items = readdirSync(rootDir)
 
-  // 过滤出目录且不应该被排除的
   const targetDirs = items
     .map(item => {
       const fullPath = join(rootDir, item)
+
       try {
         const stat = statSync(fullPath)
-        return stat.isDirectory() ? { name: item, path: fullPath } : null
-      } catch (error) {
-        // 如果无法读取目录信息，跳过
+
+        return stat.isDirectory()
+          ? {
+              name: item,
+              path: fullPath,
+            }
+          : null
+      } catch {
         return null
       }
     })
-    .filter(item => {
-      return item !== null && !shouldExclude(item.name)
-    })
+    .filter(item => item !== null && !shouldExclude(item.name))
 
   console.log(`📁 发现 ${targetDirs.length} 个项目目录：`)
+
   targetDirs.forEach(dir => {
-    console.log(`  - ${dir?.name}`)
+    console.log(`  - ${dir.name}`)
   })
 
-  let installedCount = 0
+  const installDirs = []
   let skippedCount = 0
 
-  // 为每个目录安装依赖
   for (const dir of targetDirs) {
-    if (hasPackageJson(dir?.path)) {
-      installDependencies(dir?.path, dir?.name)
-      installedCount++
+    if (hasPackageJson(dir.path)) {
+      installDirs.push(dir)
     } else {
-      console.log(`⏭️  跳过 ${dir?.name}（无 package.json）`)
+      console.log(`⏭️  跳过 ${dir.name}（无 package.json）`)
       skippedCount++
     }
   }
 
-  console.log(`\n🎉 安装完成！`)
-  console.log(`📊 统计：安装了 ${installedCount} 个项目（已自动删除 node_modules），跳过了 ${skippedCount} 个项目`)
+  const tasks = installDirs.map(dir => {
+    return () => installDependencies(dir.path, dir.name)
+  })
+
+  const results = await runWithConcurrency(tasks, CONCURRENCY)
+
+  const successCount = results.filter(item => item.success).length
+  const failedCount = results.filter(item => !item.success).length
+
+  console.log(`\n🎉 执行完成！`)
+  console.log(`📊 统计：成功安装 ${successCount} 个项目，失败 ${failedCount} 个项目，跳过 ${skippedCount} 个项目`)
+  console.log(`🧹 成功安装的项目已自动删除 node_modules`)
 }
 
-main()
+main().catch(error => {
+  console.error('❌ 执行异常:', error)
+  process.exit(1)
+})
