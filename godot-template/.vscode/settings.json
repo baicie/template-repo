@@ -1,4 +1,5 @@
 {
+  // ─── 语言特定配置 ──────────────────────────────────────────────
   "[gdscript]": {
     "editor.defaultFormatter": "geequlim.godot-tools",
     "editor.tabSize": 4,
@@ -16,7 +17,8 @@
     "editor.rulers": [88, 120],
     "editor.formatOnSave": true,
     "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "python.analysis.lintingEnabled": true
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -54,6 +56,7 @@
     "files.insertFinalNewline": true
   },
 
+  // ─── 文件关联 ────────────────────────────────────────────────
   "files.associations": {
     "*.gd": "gdscript",
     "*.tscn": "ini",
@@ -63,10 +66,12 @@
     "project.godot": "ini"
   },
 
+  // ─── 全局文件配置 ────────────────────────────────────────────
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
 
+  // ─── 编辑器全局配置 ──────────────────────────────────────────
   "editor.formatOnSave": true,
   "editor.rulers": [100],
   "editor.renderWhitespace": "boundary",
@@ -76,6 +81,7 @@
   "editor.suggest.showStatusBar": true,
   "editor.inlineSuggest.enabled": true,
 
+  // ─── Python ─────────────────────────────────────────────────
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
@@ -84,14 +90,13 @@
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.autoImportCompletions": true,
   "python.analysis.indexing": true,
-  "[python]": {
-    "python.analysis.lintingEnabled": true
-  },
 
+  // ─── pytest 测试集成 ────────────────────────────────────────
   "python.testing.pytestEnabled": true,
   "python.testing.pytestArgs": ["tools/validate_json.py", "-v", "--tb=short"],
   "python.testing.unittestEnabled": false,
 
+  // ─── JSON Schema 关联 ──────────────────────────────────────
   "json.schemas": [
     {
       "fileMatch": ["cards.json"],
@@ -104,14 +109,19 @@
   ],
   "json.format.enable": true,
 
+  // ─── YAML ──────────────────────────────────────────────────
   "yaml.schemas": {
     "github-actions": ".github/workflows/*.yml"
   },
 
+  // ─── Godot Tools ───────────────────────────────────────────
   "godot-tools.gdscript.format_on_save": true,
   "godot-tools.gdscript.add_spaces_after_try": true,
   "godot-tools.gdscript.spaces_after_try": 1,
+  "godot-tools.editor.autoClosingQuotes": true,
+  "godot-tools.editor.autoSurround": true,
 
+  // ─── 拼写检查 ──────────────────────────────────────────────
   "cSpell.language": "en,zh-CN",
   "cSpell.ignoreWords": [
     "gdscript",
@@ -124,33 +134,41 @@
     "BattleController",
     "EffectResolver",
     "StatusManager",
-    "EnemyAI"
+    "EnemyAI",
+    "CardInstance",
+    "EnemyInstance",
+    "CardLibrary",
+    "EnemyLibrary",
+    "DamageCalculator",
+    "TurnManager",
+    "CardData",
+    "EnemyData",
+    "EventBus",
+    "RunState"
   ],
-  "cSpell.enableFiletypes": [
-    "gdscript",
-    "json",
-    "yaml",
-    "markdown"
-  ],
+  "cSpell.enableFiletypes": ["gdscript", "json", "yaml", "markdown"],
 
+  // ─── 文件资源管理器 ────────────────────────────────────────
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "project.godot": ".godot/, .importing/",
-    "*.gd": "*.gd.bak",
+    "project.godot": ".godot/",
     "cards.json": "cards.schema.json",
     "enemies.json": "enemies.schema.json"
   },
 
+  // ─── 终端 ──────────────────────────────────────────────────
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.cursorBlinking": true,
 
+  // ─── Prettier ──────────────────────────────────────────────
+  "prettier.tabWidth": 2,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+
+  // ─── 工作台 ────────────────────────────────────────────────
   "security.workspace.trust.enabled": true,
   "workbench.editor.closeOnFileDelete": "prompt",
   "workbench.startupEditor": "welcomePage",
-  "window.zoomLevel": 0,
-
-  "[gdscript]": {
-    "editor.defaultFormatter": "geequlim.godot-tools"
-  }
+  "window.zoomLevel": 0
 }

@@ -1,50 +1,57 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "required": [
-    "cards"
-  ],
+  "required": ["cards"],
   "properties": {
     "cards": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "id",
-          "name",
-          "cost",
-          "type",
-          "rarity",
-          "target",
-          "effects"
-        ],
+        "required": ["id", "name", "desc", "cost", "type", "rarity", "target", "effects"],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-z_][a-z0-9_]*$",
+            "description": "卡牌 ID，必须为 snake_case"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "description": "卡牌显示名称"
           },
           "desc": {
-            "type": "string"
+            "type": "string",
+            "description": "卡牌描述文字"
           },
           "cost": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "能量消耗"
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["attack", "skill", "power"],
+            "description": "卡牌类型：attack=攻击，skill=技能，power=能力"
           },
           "rarity": {
-            "type": "string"
+            "type": "string",
+            "enum": ["starter", "common", "uncommon", "rare"],
+            "description": "稀有度：starter=起始，common=普通，uncommon=优秀，rare=稀有"
           },
           "target": {
-            "type": "string"
+            "type": "string",
+            "enum": ["enemy", "self", "all_enemies", "random_enemy"],
+            "description": "目标：enemy=单体敌人，self=自身，all_enemies=全体，random_enemy=随机敌人"
           },
           "effects": {
-            "type": "array"
+            "type": "array",
+            "minItems": 1,
+            "description": "卡牌效果列表"
           },
           "upgrade": {
-            "type": "object"
+            "type": "object",
+            "description": "升级后版本"
           }
         }
       }

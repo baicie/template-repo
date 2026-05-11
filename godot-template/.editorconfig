@@ -1,0 +1,46 @@
+# EditorConfig — 跨编辑器代码风格统一
+# https://editorconfig.org
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# 软缩进（空格，不 tab）
+indent_style = space
+
+# 默认缩进
+indent_size = 2
+
+# Markdown 使用 4 空格
+[*.md]
+indent_size = 4
+trim_trailing_whitespace = false
+
+# Python 使用 4 空格
+[*.py]
+indent_size = 4
+max_line_length = 120
+
+# GDScript 使用 4 空格（Godot 标准）
+[*.gd]
+indent_size = 4
+
+# Godot 配置/场景文件使用 4 空格
+[*.{godot,tscn,tres,cfg}]
+indent_size = 4
+
+# YAML 使用 2 空格
+[*.{yml,yaml}]
+indent_size = 2
+
+# JSON 格式化用 2 空格（Prettier 管理）
+[*.json]
+indent_size = 2
+
+# Shell 脚本
+[*.sh]
+indent_size = 2

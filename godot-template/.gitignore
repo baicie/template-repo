@@ -2,26 +2,21 @@
 .godot/
 .import/
 export.cfg
+export_presets.cfg
 export_presets.cfg.bak
 *.translation
+.import/
+*.pck
 
 # Builds
 builds/
 dist/
-*.pck
-*.zip
-*.exe
-*.x86_64
-*.app
-*.apk
-*.aab
 
 # OS
 .DS_Store
 Thumbs.db
 
 # IDE
-# .vscode/settings.json
 .idea/
 
 # Secrets
@@ -29,3 +24,11 @@ Thumbs.db
 *.keystore
 *.p12
 secrets/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.mypy_cache/

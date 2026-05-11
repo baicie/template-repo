@@ -1,0 +1,19 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 100,
+  "proseWrap": "preserve",
+  "overrides": [
+    {
+      "files": ["*.md"],
+      "options": {
+        "printWidth": 80,
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": ["*.gd"],
+      "parser": "gdscript"
+    }
+  ]
+}

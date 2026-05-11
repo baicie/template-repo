@@ -2,38 +2,86 @@ name: Validate
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [main, dev]
   pull_request:
-    branches: [ main, dev ]
+    branches: [main, dev]
+
+permissions:
+  contents: read
 
 jobs:
-  data-and-tests:
+  # ─── Python 数据校验 ───────────────────────────────────────────
+  validate-json:
+    name: JSON 数据校验
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate JSON data
-        run: python tools/validate_json.py
-      - name: Run Python tests
-        run: |
-          python -m pip install --upgrade pip pytest
-          pytest -q
+          cache: 'pip'
 
-  godot-import-check:
+      - name: 安装依赖
+        run: pip install pytest jsonschema
+
+      - name: JSON Schema 校验
+        run: python -m pytest tools/validate_json.py -v --tb=short
+
+  # ─── Python 代码质量 ───────────────────────────────────────────
+  lint:
+    name: Python 代码质量
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: 安装 lint 工具
+        run: pip install flake8
+
+      - name: flake8 检查
+        run: flake8 tools/ tests/ --max-line-length=120 --extend-ignore=E203,W503
+
+  # ─── Godot 导入检查 ───────────────────────────────────────────
+  godot-import:
+    name: Godot 导入检查
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.2.2
     steps:
       - uses: actions/checkout@v4
-      - name: Import project in headless mode
+
+      - name: 导入项目（无头模式）
         run: godot --headless --import --quit
-      - name: Export PCK smoke test
+
+  # ─── Godot PCK 导出冒烟测试 ───────────────────────────────────
+  export-pck:
+    name: Godot 导出测试
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.2.2
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 导入项目
+        run: godot --headless --import --quit
+
+      - name: 导出 PCK
         run: |
           mkdir -p builds/linux
           godot --headless --export-pack "Linux/X11" builds/linux/zhenyaosi.pck
+
+      - name: 验证 PCK 存在
+        run: |
+          test -f builds/linux/zhenyaosi.pck && echo "PCK created successfully" || exit 1
+          du -h builds/linux/zhenyaosi.pck
+
       - uses: actions/upload-artifact@v4
         with:
           name: zhenyaosi-pck
           path: builds/linux/zhenyaosi.pck
+          retention-days: 7
