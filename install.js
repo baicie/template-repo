@@ -72,9 +72,6 @@ async function installDependencies(dirPath, dirName) {
 
   const cwd = resolve(dirPath)
 
-  console.log(`🔐 正在执行 ${dirName} 的 pnpm approve-builds...`)
-  await runCommand('pnpm', ['approve-builds', '--all'], cwd)
-
   console.log(`📥 正在安装 ${dirName} 的依赖...`)
   const installSuccess = await runCommand('pnpm', ['install'], cwd)
 
