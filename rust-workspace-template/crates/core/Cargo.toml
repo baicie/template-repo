@@ -1,0 +1,21 @@
+[package]
+name = "your-core"
+description = "Core business logic for your Rust workspace project."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+authors.workspace = true
+
+[dependencies]
+your-utils.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+
+[dev-dependencies]
+pretty_assertions = "1"
+
+[lints]
+workspace = true

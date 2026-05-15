@@ -1,0 +1,25 @@
+[package]
+name = "your-cli"
+description = "Command-line interface for your Rust workspace project."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "your"
+path = "src/main.rs"
+
+[dependencies]
+your-core.workspace = true
+your-config.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+[lints]
+workspace = true

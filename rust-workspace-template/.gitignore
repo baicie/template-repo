@@ -1,0 +1,9 @@
+/target
+/Cargo.lock.bak
+*.pdb
+*.profraw
+*.profdata
+.DS_Store
+.env
+.env.*
+!.env.example
