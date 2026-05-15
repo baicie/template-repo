@@ -1,0 +1,22 @@
+{
+  "name": "interview",
+  "version": "1.0.1",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "build:github": "NODE_ENV=production vitepress build",
+    "commit": "node scripts/auto-commit.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@11.1.2",
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "vitepress": "^1.6.4"
+  }
+}

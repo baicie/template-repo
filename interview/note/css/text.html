@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字省略示例</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* 单行文字省略 */
+        .single-line {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 多行文字省略 */
+        .multi-line {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>单行文字省略</h3>
+        <p class="single-line">这是一段很长的文字，当文字超出容器宽度时会被省略号替代，这是单行文字省略的典型应用场景。</p>
+    </div>
+
+    <div class="container">
+        <h3>多行文字省略</h3>
+        <p class="multi-line">
+            这是一段很长的文字，用来演示多行文字省略效果。当文字内容超过指定的行数时，多余的内容会被隐藏并显示省略号。这种方法常用于文章摘要、商品描述等场景，既保持了页面的整洁性，又给用户提供了足够的信息预览。</p>
+    </div>
+</body>
+
+</html>
