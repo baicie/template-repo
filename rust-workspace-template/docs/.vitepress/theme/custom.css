@@ -1,0 +1,154 @@
+/* VitePress theme overrides for Rust Workspace Template */
+
+:root {
+  --vp-c-brand-1: #b7410e;
+  --vp-c-brand-2: #ce4c0e;
+  --vp-c-brand-3: #e55c0e;
+  --vp-c-brand-soft: rgba(183, 65, 14, 0.14);
+
+  --vp-sidebar-width: 280px;
+}
+
+.dark {
+  --vp-c-brand-1: #f05a28;
+  --vp-c-brand-2: #ff6a38;
+  --vp-c-brand-3: #ff7a48;
+  --vp-c-brand-soft: rgba(240, 90, 40, 0.14);
+}
+
+/* Hero title gradient */
+.VPHero .name {
+  background: linear-gradient(120deg, #b7410e 30%, #e55c0e 60%, #f05a28);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Feature cards hover */
+.VPFeatures .VPFeature {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  background: var(--vp-c-bg-soft);
+}
+
+.VPFeatures .VPFeature:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(183, 65, 14, 0.15);
+}
+
+/* Code blocks */
+.VPDoc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--vp-c-border);
+}
+
+/* Nav bar */
+.VPNav {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.dark .VPNav {
+  background: rgba(30, 30, 32, 0.9);
+}
+
+/* Headings */
+.VPDoc h1 {
+  color: var(--vp-c-brand-1);
+  border-bottom: 2px solid var(--vp-c-brand-soft);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.VPDoc h2 {
+  color: var(--vp-c-text-1);
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Blockquote */
+.VPDoc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Tables */
+.VPDoc table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.VPDoc th,
+.VPDoc td {
+  border: 1px solid var(--vp-c-border);
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+
+.VPDoc th {
+  background: var(--vp-c-bg-soft);
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}
+
+/* Sidebar */
+.VPSidebarItem.level-0 .text {
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  font-size: 0.95em;
+}
+
+.VPSidebarItem.is-active .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+/* Prev/Next links */
+.VPDocFooter .prev-next .pager-link {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.VPDocFooter .prev-next .pager-link:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+}
+
+.VPDocFooter .prev-next .pager-link .title {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+/* Page outline */
+.VPDocOutline .outline-marker {
+  background-color: var(--vp-c-brand-1);
+}
+
+.VPDocOutline .outline-link.active {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+/* Search */
+.VPNavBarSearch .DocSearch-Button {
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+}
+
+.VPNavBarSearch .DocSearch-Button:hover {
+  border-color: var(--vp-c-brand-1);
+}
