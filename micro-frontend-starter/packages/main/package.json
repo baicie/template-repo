@@ -18,9 +18,9 @@
     "cross-env": "^10.1.0",
     "css-loader": "^7.1.4",
     "html-webpack-plugin": "^5.6.7",
-    "less-loader": "^12.3.2",
+    "less-loader": "^13.0.0",
     "style-loader": "^4.0.0",
-    "webpack": "^5.106.2",
+    "webpack": "^5.107.1",
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.2.4"
   },

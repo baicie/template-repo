@@ -24,10 +24,10 @@
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
-    "@types/node": "^25.8.0",
-    "rolldown": "^1.0.1",
-    "rolldown-plugin-dts": "^0.25.0",
+    "@types/node": "^25.9.1",
+    "rolldown": "^1.0.2",
+    "rolldown-plugin-dts": "^0.25.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.7"
   }
 }

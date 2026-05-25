@@ -23,7 +23,7 @@
     "eslint": "^10.4.0",
     "eslint-plugin-vue": "^10.9.1",
     "less": "^4.6.4",
-    "less-loader": "^12.3.2"
+    "less-loader": "^13.0.0"
   },
   "eslintConfig": {
     "root": true,

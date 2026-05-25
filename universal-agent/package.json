@@ -2,7 +2,7 @@
   "name": "universal-agent",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@11.1.2",
+  "packageManager": "pnpm@11.3.0",
   "engines": {
     "node": ">=22.0.0"
   },
@@ -29,17 +29,17 @@
   "devDependencies": {
     "@antfu/eslint-config": "^9.0.0",
     "@baicie/scripts": "^0.1.2",
-    "@types/node": "^25.8.0",
+    "@types/node": "^25.9.1",
     "eslint": "^10.4.0",
-    "lint-staged": "^17.0.4",
+    "lint-staged": "^17.0.5",
     "picocolors": "^1.1.1",
     "prettier": "^3.8.3",
     "simple-git-hooks": "^2.13.1",
     "typescript": "^6.0.3",
-    "vite": "^8.0.13",
-    "vite-plugin-dts": "^5.0.0",
+    "vite": "^8.0.14",
+    "vite-plugin-dts": "^5.0.1",
     "vitepress": "1.6.4",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.7"
   },
   "simple-git-hooks": {
     "pre-commit": ".git/hooks/pre-commit",

@@ -1,8 +1,9 @@
-import { readdirSync, statSync, existsSync, rmSync } from 'node:fs'
+import { readFileSync, readdirSync, statSync, existsSync, rmSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { spawn } from 'node:child_process'
 
 const CONCURRENCY = 1
+const ALLOW_BUILDS_PLACEHOLDER = 'set this to true or false'
 
 function removeNodeModules(dirPath, dirName) {
   const nodeModulesPath = join(dirPath, 'node_modules')
@@ -43,6 +44,44 @@ function hasPackageJson(dirPath) {
   return existsSync(join(dirPath, 'package.json'))
 }
 
+function readWorkspaceYaml(dirPath) {
+  const workspacePath = join(dirPath, 'pnpm-workspace.yaml')
+
+  if (!existsSync(workspacePath)) {
+    return null
+  }
+
+  return {
+    path: workspacePath,
+    content: readFileSync(workspacePath, 'utf8'),
+  }
+}
+
+function normalizeAllowBuilds(dirPath, dirName) {
+  const workspace = readWorkspaceYaml(dirPath)
+
+  if (!workspace || !workspace.content.includes(ALLOW_BUILDS_PLACEHOLDER)) {
+    return false
+  }
+
+  const nextContent = workspace.content.replaceAll(ALLOW_BUILDS_PLACEHOLDER, 'true')
+  writeFileSync(workspace.path, nextContent, 'utf8')
+  console.log(`🔧 已将 ${dirName} 的 allowBuilds 占位符改为 true`)
+
+  return true
+}
+
+function getPnpmInstallArgs(dirPath) {
+  const args = ['install']
+  const workspace = readWorkspaceYaml(dirPath)
+
+  if (workspace?.content.includes('trustPolicy:')) {
+    args.push('--trust-lockfile')
+  }
+
+  return args
+}
+
 function runCommand(command, args, cwd) {
   return new Promise(resolvePromise => {
     const child = spawn(command, args, {
@@ -72,8 +111,16 @@ async function installDependencies(dirPath, dirName) {
 
   const cwd = resolve(dirPath)
 
+  normalizeAllowBuilds(dirPath, dirName)
+
   console.log(`📥 正在安装 ${dirName} 的依赖...`)
-  const installSuccess = await runCommand('pnpm', ['install'], cwd)
+  let installSuccess = await runCommand('pnpm', getPnpmInstallArgs(dirPath), cwd)
+
+  if (!installSuccess) {
+    console.log(`🔁 ${dirName} 首次安装未通过，尝试批准构建脚本后重试...`)
+    await runCommand('pnpm', ['approve-builds', '--all'], cwd)
+    installSuccess = await runCommand('pnpm', getPnpmInstallArgs(dirPath), cwd)
+  }
 
   if (installSuccess) {
     console.log(`✅ ${dirName} 依赖安装完成`)
@@ -170,6 +217,10 @@ async function main() {
   console.log(`\n🎉 执行完成！`)
   console.log(`📊 统计：成功安装 ${successCount} 个项目，失败 ${failedCount} 个项目，跳过 ${skippedCount} 个项目`)
   console.log(`🧹 成功安装的项目已自动删除 node_modules`)
+
+  if (failedCount > 0) {
+    process.exit(1)
+  }
 }
 
 main().catch(error => {

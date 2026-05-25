@@ -32,13 +32,13 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@openai/agents": "^0.11.4",
+    "@openai/agents": "^0.11.5",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/node": "^25.8.0",
+    "@types/node": "^25.9.1",
     "typescript": "^6.0.3",
-    "vite": "^8.0.13",
-    "vitest": "^4.1.6"
+    "vite": "^8.0.14",
+    "vitest": "^4.1.7"
   }
 }
