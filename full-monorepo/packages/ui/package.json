@@ -22,7 +22,7 @@
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
     "@types/react": "^19.2.15",
-    "rolldown": "1.0.2",
+    "rolldown": "1.0.3",
     "typescript": "^6.0.3"
   }
 }

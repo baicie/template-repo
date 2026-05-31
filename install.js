@@ -71,15 +71,8 @@ function normalizeAllowBuilds(dirPath, dirName) {
   return true
 }
 
-function getPnpmInstallArgs(dirPath) {
-  const args = ['install']
-  const workspace = readWorkspaceYaml(dirPath)
-
-  if (workspace?.content.includes('trustPolicy:')) {
-    args.push('--trust-lockfile')
-  }
-
-  return args
+function getPnpmInstallArgs() {
+  return ['install']
 }
 
 function runCommand(command, args, cwd) {
@@ -114,12 +107,12 @@ async function installDependencies(dirPath, dirName) {
   normalizeAllowBuilds(dirPath, dirName)
 
   console.log(`📥 正在安装 ${dirName} 的依赖...`)
-  let installSuccess = await runCommand('pnpm', getPnpmInstallArgs(dirPath), cwd)
+  let installSuccess = await runCommand('pnpm', getPnpmInstallArgs(), cwd)
 
   if (!installSuccess) {
     console.log(`🔁 ${dirName} 首次安装未通过，尝试批准构建脚本后重试...`)
     await runCommand('pnpm', ['approve-builds', '--all'], cwd)
-    installSuccess = await runCommand('pnpm', getPnpmInstallArgs(dirPath), cwd)
+    installSuccess = await runCommand('pnpm', getPnpmInstallArgs(), cwd)
   }
 
   if (installSuccess) {
