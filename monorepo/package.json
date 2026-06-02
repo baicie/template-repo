@@ -47,15 +47,12 @@
     "commit-msg": "node -e \"import('@baicie/scripts').then(m => m.verifyCommit())\""
   },
   "lint-staged": {
-    "*.{js,json}": [
+    "*.{js,json,md,ts,tsx,yaml,yml}": [
       "prettier --write --cache --cache-location node_modules/.cache/.prettiercache"
     ],
     "*.ts?(x)": [
       "eslint --fix --cache --cache-location node_modules/.cache/.eslintcache",
       "prettier --parser=typescript --write --cache --cache-location node_modules/.cache/.prettiercache"
-    ],
-    "*.md": [
-      "prettier --write --cache --cache-location node_modules/.cache/.prettiercache"
     ]
   }
 }
