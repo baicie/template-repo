@@ -11,13 +11,13 @@
   "dependencies": {
     "expo": "~56.0.8",
     "expo-status-bar": "~56.0.4",
-    "react": "19.2.6",
+    "react": "19.2.7",
     "react-native": "0.85.3",
     "@repo/utils": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
-    "@types/react": "~19.2.15",
+    "@types/react": "~19.2.16",
     "typescript": "^6.0.3",
     "@repo/tsconfig": "workspace:*"
   },
