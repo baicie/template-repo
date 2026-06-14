@@ -16,7 +16,7 @@
   "license": "ISC",
   "packageManager": "pnpm@11.3.0",
   "devDependencies": {
-    "@types/node": "^25.9.1",
+    "@types/node": "^25.9.3",
     "vitepress": "^1.6.4"
   }
 }

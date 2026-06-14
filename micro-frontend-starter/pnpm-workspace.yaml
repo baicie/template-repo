@@ -4,3 +4,5 @@ allowBuilds:
   core-js: true
   unrs-resolver: true
   yorkie: true
+minimumReleaseAgeExclude:
+  - less@4.6.6
