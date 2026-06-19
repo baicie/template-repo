@@ -6,3 +6,6 @@ packages:
 allowBuilds:
   esbuild: true
   simple-git-hooks: true
+
+minimumReleaseAgeExclude:
+  - '@types/node@26.0.0'

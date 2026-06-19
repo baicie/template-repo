@@ -6,3 +6,5 @@ allowBuilds:
   yorkie: true
 minimumReleaseAgeExclude:
   - less@4.6.6
+  - '@babel/plugin-transform-regenerator@8.0.2'
+  - '@babel/preset-env@8.0.2'

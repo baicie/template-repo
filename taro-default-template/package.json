@@ -37,7 +37,7 @@
   ],
   "author": "",
   "dependencies": {
-    "@babel/runtime": "^7.29.7",
+    "@babel/runtime": "^8.0.0",
     "@tarojs/components": "4.2.0",
     "@tarojs/helper": "4.2.0",
     "@tarojs/plugin-platform-weapp": "4.2.0",
@@ -54,7 +54,7 @@
     "vue": "^3.5.38"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
+    "@babel/core": "^8.0.1",
     "@tarojs/cli": "4.2.0",
     "@types/webpack-env": "^1.18.8",
     "webpack": "5.107.2",
@@ -69,11 +69,11 @@
     "eslint-config-taro": "4.2.0",
     "eslint": "^10.5.0",
     "stylelint": "^17.13.0",
-    "@typescript-eslint/parser": "^8.61.0",
-    "@typescript-eslint/eslint-plugin": "^8.61.0",
+    "@typescript-eslint/parser": "^8.61.1",
+    "@typescript-eslint/eslint-plugin": "^8.61.1",
     "typescript": "^6.0.3",
     "postcss": "^8.5.15",
     "ts-node": "^10.9.2",
-    "@types/node": "^25.9.3"
+    "@types/node": "^26.0.0"
   }
 }

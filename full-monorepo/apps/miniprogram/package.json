@@ -33,7 +33,7 @@
   ],
   "author": "",
   "dependencies": {
-    "@babel/runtime": "^7.29.7",
+    "@babel/runtime": "^8.0.0",
     "@tarojs/components": "4.2.0",
     "@tarojs/helper": "4.2.0",
     "@tarojs/plugin-framework-react": "4.2.0",
@@ -51,13 +51,13 @@
     "@repo/utils": "workspace:*"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
+    "@babel/core": "^8.0.1",
     "@tarojs/cli": "4.2.0",
     "@tarojs/mini-runner": "3.6.37",
     "@tarojs/webpack5-runner": "4.2.0",
     "@types/react": "^19.2.17",
     "@types/webpack-env": "^1.18.8",
-    "@typescript-eslint/parser": "^8.61.0",
+    "@typescript-eslint/parser": "^8.61.1",
     "babel-preset-taro": "4.2.0",
     "eslint": "^10.5.0",
     "eslint-config-taro": "4.2.0",

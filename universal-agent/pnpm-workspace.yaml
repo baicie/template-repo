@@ -16,3 +16,10 @@ overrides:
 allowBuilds:
   esbuild: true
   simple-git-hooks: true
+
+minimumReleaseAgeExclude:
+  - '@openai/agents-core@0.11.8'
+  - '@openai/agents-openai@0.11.8'
+  - '@openai/agents-realtime@0.11.8'
+  - '@openai/agents@0.11.8'
+  - '@types/node@26.0.0'

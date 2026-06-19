@@ -27,8 +27,8 @@
     "lint": "eslint . --fix"
   },
   "devDependencies": {
-    "@types/vscode": "^1.120.0",
-    "@types/node": "25.x",
+    "@types/vscode": "^1.125.0",
+    "@types/node": "26.x",
     "typescript": "^6.0.3",
     "@repo/tsconfig": "workspace:*"
   },
