@@ -2,6 +2,7 @@
   "name": "example-dir",
   "displayName": "Example dir",
   "version": "0.0.1",
+  "packageManager": "pnpm@10.34.3",
   "description": "A basic Plasmo extension.",
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "scripts": {

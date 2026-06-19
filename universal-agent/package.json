@@ -2,7 +2,7 @@
   "name": "universal-agent",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@11.3.0",
+  "packageManager": "pnpm@10.34.3",
   "engines": {
     "node": ">=22.0.0"
   },

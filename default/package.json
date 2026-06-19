@@ -1,6 +1,7 @@
 {
   "name": "default",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.34.3",
   "description": "默认项目模板",
   "main": "dist/index.js",
   "scripts": {

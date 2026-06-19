@@ -24,10 +24,10 @@ function fetch(url) {
 const repoRoot = "d:\\workspace\\git-code\\template-repo";
 const templates = [
   "api-server", "default", "electron-app", "full-monorepo",
-  "godot-template", "interview", "micro-frontend-starter", "monorepo",
+  "expo-template", "godot-template", "interview", "micro-frontend-starter", "monorepo",
   "node-typescript", "novel-ai", "plasmo", "shadcn-app",
-  "shadcn-standalone", "simple-node-ts", "taro-default-template",
-  "universal-agent", "vue3"
+  "react-native-template", "shadcn-standalone", "simple-node-ts",
+  "taro-default-template", "universal-agent", "vue3"
 ];
 
 const GITHUB_RAW = "https://raw.githubusercontent.com/mattpocock/skills/main";

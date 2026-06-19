@@ -1,0 +1,6 @@
+.bundle
+android
+coverage
+ios
+node_modules
+pnpm-lock.yaml

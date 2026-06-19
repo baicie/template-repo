@@ -2,7 +2,7 @@
   "name": "root",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@11.3.0",
+  "packageManager": "pnpm@10.34.3",
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",

@@ -1,6 +1,7 @@
 {
   "name": "full-monorepo",
   "private": true,
+  "packageManager": "pnpm@10.34.3",
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",

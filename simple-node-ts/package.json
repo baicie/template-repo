@@ -1,6 +1,7 @@
 {
     "name": "simple-node-ts",
     "version": "1.0.0",
+  "packageManager": "pnpm@10.34.3",
     "description": "一个简单的 Node.js + TypeScript 项目",
     "main": "dist/index.js",
     "scripts": {
