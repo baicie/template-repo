@@ -48,3 +48,18 @@ expo-template/
 - This template targets Expo SDK 56.
 - Keep native code out of the repository unless the app intentionally moves away from the managed workflow.
 - Run the root repository `node scripts/install-skills.js` when project-level skills need to be refreshed.
+
+## Release Workflow
+
+Pushing a tag like `v1.0.0` triggers `.github/workflows/release.yml`.
+
+Required GitHub secret:
+
+- `EXPO_TOKEN`: Expo access token used by EAS Build.
+
+The workflow builds:
+
+- Android APK with the EAS `apk` profile.
+- iOS package with the EAS `production` profile.
+
+Configure Android credentials and Apple credentials in EAS before the first release build.

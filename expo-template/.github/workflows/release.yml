@@ -1,0 +1,77 @@
+name: Release Mobile Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  eas-build:
+    name: Build Expo APK and iOS package
+    runs-on: ubuntu-latest
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run quality checks
+        run: pnpm check
+
+      - name: Validate EAS token
+        run: |
+          if [ -z "$EXPO_TOKEN" ]; then
+            echo "EXPO_TOKEN secret is required for Expo release builds."
+            exit 1
+          fi
+
+      - name: Build Android APK with EAS
+        run: pnpm dlx eas-cli build --platform android --profile apk --non-interactive --wait --json > android-build.json
+
+      - name: Build iOS package with EAS
+        run: pnpm dlx eas-cli build --platform ios --profile production --non-interactive --wait --json > ios-build.json
+
+      - name: Download build artifacts
+        run: |
+          android_url="$(node -e "const data=require('./android-build.json'); const item=Array.isArray(data)?data[0]:data; console.log(item.artifacts?.buildUrl || item.artifactUrl || '')")"
+          ios_url="$(node -e "const data=require('./ios-build.json'); const item=Array.isArray(data)?data[0]:data; console.log(item.artifacts?.buildUrl || item.artifactUrl || '')")"
+
+          if [ -z "$android_url" ] || [ -z "$ios_url" ]; then
+            echo "Could not resolve EAS artifact URLs."
+            cat android-build.json
+            cat ios-build.json
+            exit 1
+          fi
+
+          mkdir -p release-artifacts
+          curl -L "$android_url" -o "release-artifacts/expo-template-${GITHUB_REF_NAME}.apk"
+          curl -L "$ios_url" -o "release-artifacts/expo-template-${GITHUB_REF_NAME}.ipa"
+
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: expo-template-${{ github.ref_name }}
+          path: release-artifacts/*
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release-artifacts/*

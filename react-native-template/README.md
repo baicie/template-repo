@@ -55,3 +55,31 @@ react-native-template/
 - This template targets React Native 0.86.
 - Keep native project edits intentional and documented.
 - Run the root repository `node scripts/install-skills.js` when project-level skills need to be refreshed.
+
+## Release Workflow
+
+Pushing a tag like `v1.0.0` triggers `.github/workflows/release.yml`.
+
+Android secrets:
+
+- `ANDROID_KEYSTORE_BASE64`: base64-encoded release keystore.
+- `ANDROID_KEYSTORE_PASSWORD`
+- `ANDROID_KEY_ALIAS`
+- `ANDROID_KEY_PASSWORD`
+
+If Android signing secrets are not set, the template falls back to the generated debug keystore so the workflow can still produce an APK during early setup.
+
+iOS secrets:
+
+- `IOS_CERTIFICATE_BASE64`: base64-encoded `.p12` signing certificate.
+- `IOS_CERTIFICATE_PASSWORD`
+- `IOS_PROVISION_PROFILE_BASE64`: base64-encoded provisioning profile.
+- `IOS_TEAM_ID`
+- `IOS_BUNDLE_IDENTIFIER`: optional, defaults to `org.reactjs.native.example.ReactNativeTemplate`.
+- `IOS_EXPORT_METHOD`: optional, defaults to `app-store`.
+- `KEYCHAIN_PASSWORD`: optional temporary keychain password.
+
+The workflow builds:
+
+- `react-native-template-vx.y.z.apk`
+- `react-native-template-vx.y.z.ipa`
