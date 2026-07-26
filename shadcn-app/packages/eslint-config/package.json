@@ -6,7 +6,7 @@
   "dependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.5.0",
-    "eslint-config-next": "^16.2.9",
+    "eslint-config-next": "^16.2.12",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "typescript-eslint": "^8.61.1"
