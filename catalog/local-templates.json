@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "templates": [
+    { "id": "api-server", "path": "api-server", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "default", "path": "default", "kind": "node", "tier": "core", "install": true, "build": "build" },
+    { "id": "electron-app", "path": "electron-app", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "expo-template", "path": "expo-template", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "full-monorepo", "path": "full-monorepo", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "godot-template", "path": "godot-template", "kind": "static", "tier": "metadata", "install": false },
+    { "id": "interview", "path": "interview", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "micro-frontend-starter", "path": "micro-frontend-starter", "kind": "node", "tier": "metadata", "install": false },
+    { "id": "monorepo", "path": "monorepo", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "node-typescript", "path": "node-typescript", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "novel-ai", "path": "novel-ai", "kind": "static", "tier": "metadata", "install": false },
+    { "id": "plasmo", "path": "plasmo", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "react-native-template", "path": "react-native-template", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "rust-workspace-template", "path": "rust-workspace-template", "kind": "static", "tier": "metadata", "install": false },
+    { "id": "shadcn-app", "path": "shadcn-app", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "shadcn-standalone", "path": "shadcn-standalone", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "simple-node-ts", "path": "simple-node-ts", "kind": "node", "tier": "core", "install": true, "build": "build" },
+    { "id": "taro-default-template", "path": "taro-default-template", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "universal-agent", "path": "universal-agent", "kind": "node", "tier": "extended", "install": true, "build": "build" },
+    { "id": "vue3", "path": "vue3", "kind": "node", "tier": "core", "install": true, "build": "build" }
+  ]
+}

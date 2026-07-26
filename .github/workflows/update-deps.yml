@@ -1,4 +1,4 @@
-name: Update Dependencies for All Templates
+name: Dependency Update Report
 
 on:
   schedule:
@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-deps:
+  report:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - name: Checkout repository
@@ -20,50 +20,5 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install pnpm and ncu
-        run: |
-          npm install -g pnpm npm-check-updates
-
-      - name: Updates all deps
-        run: |
-          ncu -u --deep
-
-      - name: Loop through root subdirectories
-        run: |
-          set -e
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          ignored_dirs=(".github/" "node_modules/" ".git/" "dist/" "build/" "coverage/" "plasmo/")
-
-          for dir in */; do 
-            skip=false
-            for ignored in "${ignored_dirs[@]}"; do
-              if [[ "$dir" == "$ignored" ]]; then
-                skip=true
-                break
-              fi
-            done
-            
-            if [[ "$skip" == true ]]; then
-              echo "Skipping $dir (ignored)"
-              continue
-            fi
-
-            echo "=== Processing $dir ==="
-            cd "$dir"
-
-            pnpm install
-
-            pnpm run build || { echo "Build failed in $dir"; exit 1; }
-            pnpm test
-
-            if ! git diff --quiet -- "package.json" "pnpm-lock.yaml"; then
-              git add package.json pnpm-lock.yaml
-              git commit -m "chore(${dir%/}): upgrade dependencies"
-            fi
-
-            cd ..
-          done
-
-          git push
+      - name: Report available dependency updates
+        run: npx npm-check-updates --deep --format group

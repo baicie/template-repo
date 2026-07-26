@@ -1,0 +1,52 @@
+name: Template Quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    name: Template Catalog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/templates.mjs verify
+      - run: node --test scripts/__tests__/*.test.mjs
+      - run: node scripts/smoke-templates.mjs --tier metadata
+
+  core-smoke:
+    name: Core Template Smoke (${{ matrix.template }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        template: [default, simple-node-ts, vue3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/smoke-templates.mjs --tier core --template ${{ matrix.template }} --run
+
+  upstream-overlay:
+    name: Upstream Overlay Smoke
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/templates.mjs create shadcn-admin-ai .tmp/shadcn-admin-ai
+      - run: test -f .tmp/shadcn-admin-ai/AGENTS.md
+      - run: test -f .tmp/shadcn-admin-ai/.template-origin.json

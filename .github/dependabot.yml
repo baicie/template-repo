@@ -1,0 +1,74 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /api-server
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /default
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /electron-app
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /expo-template
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /full-monorepo
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /interview
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /micro-frontend-starter
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /monorepo
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /node-typescript
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /plasmo
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /react-native-template
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /shadcn-app
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /shadcn-standalone
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /simple-node-ts
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /taro-default-template
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /universal-agent
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /vue3
+    schedule:
+      interval: weekly

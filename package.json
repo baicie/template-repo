@@ -1,0 +1,19 @@
+{
+  "name": "@baicie/template-catalog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "templates": "node scripts/templates.mjs",
+    "templates:create": "node scripts/templates.mjs create",
+    "templates:list": "node scripts/templates.mjs list",
+    "templates:verify": "node scripts/templates.mjs verify",
+    "templates:sync": "node scripts/templates.mjs sync",
+    "templates:smoke": "node scripts/smoke-templates.mjs",
+    "release:dry-run": "node scripts/templates.mjs verify && node scripts/smoke-templates.mjs --tier metadata",
+    "test:catalog": "node --test scripts/__tests__/*.test.mjs"
+  }
+}
