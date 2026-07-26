@@ -1,9 +1,27 @@
 import { readFileSync, readdirSync, statSync, existsSync, rmSync, writeFileSync } from 'node:fs'
-import { join, resolve } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 import { spawn } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+import { parseArgs } from 'node:util'
 
 const CONCURRENCY = 1
 const ALLOW_BUILDS_PLACEHOLDER = 'set this to true or false'
+const ROOT_DIR = dirname(fileURLToPath(import.meta.url))
+
+function getOptions() {
+  const { values } = parseArgs({
+    options: {
+      'dry-run': {
+        type: 'boolean',
+        default: false,
+      },
+    },
+  })
+
+  return {
+    dryRun: values['dry-run'],
+  }
+}
 
 function removeNodeModules(dirPath, dirName) {
   const nodeModulesPath = join(dirPath, 'node_modules')
@@ -156,14 +174,15 @@ async function runWithConcurrency(tasks, concurrency) {
 }
 
 async function main() {
+  const { dryRun } = getOptions()
+
   console.log('🚀 开始批量安装项目依赖...\n')
 
-  const rootDir = process.cwd()
-  const items = readdirSync(rootDir)
+  const items = readdirSync(ROOT_DIR)
 
   const targetDirs = items
     .map(item => {
-      const fullPath = join(rootDir, item)
+      const fullPath = join(ROOT_DIR, item)
 
       try {
         const stat = statSync(fullPath)
@@ -196,6 +215,11 @@ async function main() {
       console.log(`⏭️  跳过 ${dir.name}（无 package.json）`)
       skippedCount++
     }
+  }
+
+  if (dryRun) {
+    console.log(`\n🔎 预览完成：将安装 ${installDirs.length} 个项目，未修改任何文件`)
+    return
   }
 
   const tasks = installDirs.map(dir => {
