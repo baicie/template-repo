@@ -52,7 +52,7 @@
     "@nestjs/cli": "^11.0.23",
     "@nestjs/schematics": "^11.1.0",
     "@nestjs/swagger": "^11.4.4",
-    "@nestjs/testing": "^11.1.27",
+    "@nestjs/testing": "^11.1.28",
     "@types/bcryptjs": "^3.0.0",
     "@types/compression": "^1.8.1",
     "@types/express": "^5.0.6",
