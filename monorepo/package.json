@@ -28,7 +28,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^9.0.0",
+    "@antfu/eslint-config": "^9.2.0",
     "@baicie/release": "^0.3.3",
     "@baicie/scripts": "^0.1.2",
     "@types/node": "^26.0.0",
