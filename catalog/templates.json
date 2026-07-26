@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "templates": [
+    {
+      "id": "shadcn-admin",
+      "title": "shadcn-admin",
+      "description": "The upstream shadcn-admin dashboard, pinned to a reproducible commit.",
+      "license": "MIT",
+      "source": {
+        "repository": "https://github.com/satnaing/shadcn-admin.git",
+        "ref": "main",
+        "revision": "e16c87f213a5ba5e45964e9b67c792105ec74d26"
+      }
+    },
+    {
+      "id": "shadcn-admin-ai",
+      "title": "shadcn-admin with AI rules",
+      "description": "shadcn-admin plus repository-local AI collaboration rules.",
+      "license": "MIT",
+      "source": {
+        "repository": "https://github.com/satnaing/shadcn-admin.git",
+        "ref": "main",
+        "revision": "e16c87f213a5ba5e45964e9b67c792105ec74d26"
+      },
+      "overlay": "overlays/shadcn-admin-ai"
+    },
+    {
+      "id": "nextjs-boilerplate",
+      "title": "Next.js Boilerplate",
+      "description": "A maintained Next.js starter, pinned to a reproducible commit.",
+      "license": "MIT",
+      "source": {
+        "repository": "https://github.com/ixartz/Next-js-Boilerplate.git",
+        "ref": "main",
+        "revision": "2ed91c8ca6a89f49059388a690bcecb463ebe64b"
+      }
+    }
+  ]
+}
